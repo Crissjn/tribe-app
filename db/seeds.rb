@@ -13,7 +13,7 @@ file = URI.parse("https://t3.ftcdn.net/jpg/06/95/63/36/360_F_695633635_fEruwn09W
 
 puts "Cleaning table..."
 User.destroy_all
-
+puts "Creating users"
 kelvin = User.new(
   username: 'kelvin',
   email: 'kelvin@gmail.com',
