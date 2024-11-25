@@ -1,0 +1,8 @@
+<div class="categories">
+  <% categories.each do |category| %>
+    <button class="category <%= 'active' if category[:active] %>">
+      <span class="emoji"><%= category[:emoji] %></span>
+      <%= category[:label] %>
+    </button>
+  <% end %>
+</div>
