@@ -7,6 +7,13 @@ class ExperiencesController < ApplicationController
 
   def show
     @experience = Experience.find(params[:id])
+    @markers = [{
+      lat: @experience.latitude,
+      lng: @experience.longitude,
+
+      info_window_html: render_to_string(partial: "info_window", locals: {experience: @experience}),
+      marker_html: render_to_string(partial: "marker", locals: {experience: @experience})
+      }]
   end
 
   def new
