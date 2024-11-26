@@ -31,6 +31,16 @@ class ExperiencesController < ApplicationController
     end
   end
 
+  def edit
+    @experience = Experience.find(params[:id])
+  end
+
+  def update
+      @experience = Experience.find(params[:id])
+      @experience.update(experience_params)
+      redirect_to dashboard_path
+  end
+
   private
 
   def set_user
@@ -38,6 +48,6 @@ class ExperiencesController < ApplicationController
   end
 
   def experience_params
-    params.require(:experience).permit(:exp_type, :max_participants, :min_participants, :date, :description)
+    params.require(:experience).permit(:exp_type, :max_participants, :min_participants, :date, :description, :location, :title )
   end
 end

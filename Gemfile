@@ -27,7 +27,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Gemfile
-gem "dotenv-rails"
+# gem "dotenv-rails"
 
 # Gemfile
 gem "cloudinary"
