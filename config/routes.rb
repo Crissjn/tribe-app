@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+  root to: "experiences#index"
   get "/dashboard", to: "pages#dashboard"
   # Health status route for uptime monitoring
   get "up" => "rails/health#show", as: :rails_health_check
