@@ -11,7 +11,7 @@
 
 
   <% categories = [
-    { emoji: "🌄", label: "View", active: true },
+    { emoji: "📸", label: "View", active: true },
     { emoji: "🌱", label: "Nature", active: false },
     { emoji: "🏖️", label: "Beach", active: false },
     { emoji: "🍴", label: "Food Lover", active: false }
@@ -23,7 +23,7 @@
 <div class="content-grid">
   <!-- Card 1 -->
   <div class="card">
-    <img src="/assets/desert.jpeg" alt="Amazing desert view" class="small-image" />
+    <%= image_tag 'desert.jpeg', alt: 'Amazing desert view', class: 'small-image' %>
     <div class="card-info">
       <p>On my next trip to Greece will have a spot here</p>
       <span class="author">Mimi</span>
@@ -32,7 +32,7 @@
 
   <!-- Card 2 -->
   <div class="card">
-    <img src="/assets/greece.jpeg" alt="View of Greece" class="small-image" />
+    <%= image_tag 'greece.jpeg', alt: 'View of Greece', class: 'small-image' %>
     <div class="card-info">
       <p>The 25 Best Things to Do and See in Norway</p>
       <span class="author">Leo</span>
@@ -41,7 +41,7 @@
 
   <!-- Card 3 -->
   <div class="card">
-    <img src="/assets/norway.jpeg" alt="Stunning Norway scenery" class="small-image" />
+    <%= image_tag 'norway.jpeg', alt: 'Stunning Norway scenery', class: 'small-image' %>
     <div class="card-info">
       <p>Amazing desert views</p>
       <span class="author">User</span>
@@ -52,5 +52,5 @@
   </section>
 
 
-  <%# <%= render 'shared/footer', current_page: 'feed' %> %>
+  <%= render 'shared/footer', current_page: 'feed' %>
 </div>
