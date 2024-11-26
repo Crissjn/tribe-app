@@ -6,3 +6,9 @@
 <% else %>
   <%= link_to "Book this experience" , experience_bookings_path(@experience) , data: {turbo_method: "post"} %>
 <% end %>
+
+<div style="width: 50%; height: 300px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>  
