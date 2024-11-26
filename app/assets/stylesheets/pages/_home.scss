@@ -36,7 +36,7 @@
 }
 
 .search-bar .search-button {
-  background-color: #000;
+  background-color: #efe7e7;
   color: #fff;
   border: none;
   padding: 8px 16px;
@@ -56,11 +56,11 @@
   border-radius: 8px;
   cursor: pointer;
   background-color: #fff;
-}
 
-.category.active {
-  background-color: #000;
-  color: #fff;
+  &.active {
+    background-color: #0b0b0b;
+    color: #fff;
+  }
 }
 
 .footer {
@@ -87,4 +87,13 @@
 .nav-item.active {
   color: #000;
   font-weight: bold;
+}
+.small-image {
+  width: 150px; /* Ajustez cette valeur pour la taille souhaitée */
+  height: auto; /* Conserve le ratio de l'image */
+  border-radius: 8px; /* Optionnel : ajoute un arrondi */
+  object-fit: cover; /* Optionnel : ajuste la manière dont l'image s'insère */
+}
+body {
+  font-family: 'League Spartan', sans-serif;
 }
