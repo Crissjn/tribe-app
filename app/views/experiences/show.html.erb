@@ -1,0 +1,8 @@
+<h1>ciao</h1>
+<h1><%= @user.username %> </h1>
+<h1>Partecipants <%= @experience.bookings.count %> on <%= @experience.max_participants %> <%= @experience.full? %></h1>
+<% if @experience.user == @user %>
+  <h3>You own this experience</h3>
+<% else %>
+  <%= link_to "Book this experience" , experience_bookings_path(@experience) , data: {turbo_method: "post"} %>
+<% end %>

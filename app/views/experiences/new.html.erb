@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <h2 class="mb-4">Create a new experience</h2>
+      <%= simple_form_for(@experience) do |f| %>
+        <div class="form-inputs mb-3">
+          <%= f.input :max_participants %>
+          <%= f.input :min_participants %>
+          <%= f.input :exp_type %>
+          <%= f.input :description %>
+          <%= f.input :date %>
+
+
+
+        </div>
+          <%= f.button :submit, "Create", class: "btn btn-primary w-100" %>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
