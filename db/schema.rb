@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_103059) do
     t.string "exp_type"
     t.string "title"
     t.string "location"
+    t.decimal "price"
     t.index ["user_id"], name: "index_experiences_on_user_id"
   end
 

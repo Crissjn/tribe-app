@@ -63,6 +63,7 @@ exp1 = Experience.new(
   title: " A nice hike from centraal",
   description: "Open activity Let's walk together somewhere ",
   exp_type: "Hiking",
+  price: 0,
   date:  DateTime.new(2024, 8, 16, 12, 30, 0),
 )
 exp1.save
@@ -75,6 +76,7 @@ exp2 = Experience.new(
   title: 'a chill drink to meet people',
   description: "Let's get a drink together and have fun with some snacks etc etcetc",
   exp_type: "beer",
+  price: 10,
   date:  DateTime.new(2024, 8, 16, 20, 00, 0),
 )
 exp2.save
