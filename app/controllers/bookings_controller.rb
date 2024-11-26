@@ -4,13 +4,16 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @boooking = Booking.new
-    @booking.user = @current_user
-    @booking.exprience = @experience
-    if @booking.save
+    @booking = Booking.new
+    @booking.user = current_user
+
+    @booking.experience = Experience.find(params[:experience_id])
+
+    if @booking.experience.full? || @booking.save
       redirect_to bookings_path(@booking)
     else
-      render :new, status: :unprocessable_entity
+      puts "not good"
+      # render :new, status: :unprocessable_entity
     end
   end
 end

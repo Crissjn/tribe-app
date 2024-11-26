@@ -17,7 +17,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.new(experience_params)
     @experience.user = @user
     if @experience.save
-      @self_book = Bookings.new(user: @user, experience: @experience)
+      @self_book = Booking.new(user: @user, experience: @experience)
       redirect_to experiences_path(@experience)
     else
       render :new, status: :unprocessable_entity
@@ -31,6 +31,6 @@ class ExperiencesController < ApplicationController
   end
 
   def experience_params
-    params.require(:experience).permit(:exp_type, :max_partecipants, :min_partecipants, :date, :description)
+    params.require(:experience).permit(:exp_type, :max_participants, :min_participants, :date, :description)
   end
 end

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
 
     # Nested bookings routes under experiences
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:create, :new]
   end
 
   # Bookings routes
