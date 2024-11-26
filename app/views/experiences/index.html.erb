@@ -1,0 +1,57 @@
+<div class="homepage">
+  <header class="header">
+    <h1>Hi Kristen!</h1>
+    <button class="notification-icon">🔔</button>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Have some topics to cover?" />
+    <button class="search-button">🔍</button>
+  </div>
+
+
+  <% categories = [
+    { emoji: "🌄", label: "View", active: true },
+    { emoji: "🌱", label: "Nature", active: false },
+    { emoji: "🏖️", label: "Beach", active: false },
+    { emoji: "🍴", label: "Food Lover", active: false }
+  ] %>
+  <%= render 'shared/category_buttons', categories: categories %>
+
+  <section class="content-section">
+    <h2>Popping now by view</h2>
+<div class="content-grid">
+  <!-- Card 1 -->
+  <div class="card">
+    <img src="/assets/desert.jpeg" alt="Amazing desert view" class="small-image" />
+    <div class="card-info">
+      <p>On my next trip to Greece will have a spot here</p>
+      <span class="author">Mimi</span>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <img src="/assets/greece.jpeg" alt="View of Greece" class="small-image" />
+    <div class="card-info">
+      <p>The 25 Best Things to Do and See in Norway</p>
+      <span class="author">Leo</span>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <img src="/assets/norway.jpeg" alt="Stunning Norway scenery" class="small-image" />
+    <div class="card-info">
+      <p>Amazing desert views</p>
+      <span class="author">User</span>
+    </div>
+  </div>
+</div>
+
+  </section>
+
+
+  <%# <%= render 'shared/footer', current_page: 'feed' %> %>
+</div>
+

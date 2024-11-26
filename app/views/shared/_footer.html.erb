@@ -1,9 +1,7 @@
 <footer class="footer">
   <nav class="navbar">
-    <a href="<%= feed_path %>" class="nav-item <%= 'active' if current_page == 'feed' %>">🏠 Feed</a>
-    <a href="<%= explore_path %>" class="nav-item <%= 'active' if current_page == 'explore' %>">🔍 Explore</a>
-    <a href="<%= special_path %>" class="nav-item <%= 'active' if current_page == 'special' %>">🔆</a>
-    <a href="<%= chat_path %>" class="nav-item <%= 'active' if current_page == 'chat' %>">💬 Chat</a>
-    <a href="<%= profile_path %>" class="nav-item <%= 'active' if current_page == 'profile' %>">👤 Profile</a>
+    <a href="/dashboard" class="nav-item <%= 'active' if current_page == 'feed' %>">🏠 Feed</a>
+    <a href="/bookings/1/chat" class="nav-item <%= 'active' if current_page == 'chat' %>">💬 Chat</a>
+    <a href="/users/edit" class="nav-item <%= 'active' if current_page == 'profile' %>">👤 Profile</a>
   </nav>
 </footer>
