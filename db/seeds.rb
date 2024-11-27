@@ -62,9 +62,9 @@ exp1 = Experience.new(
   location: "Amsterdam Centraal",
   title: " A nice hike from centraal",
   description: "Open activity Let's walk together somewhere ",
-  exp_type: "Hiking",
+  exp_type: "food-drinks",
   price: 0,
-  date:  DateTime.new(2024, 8, 16, 12, 30, 0),
+  date:  DateTime.new(2024, 12, 16, 12, 30, 0),
 )
 exp1.save
 
@@ -75,8 +75,8 @@ exp2 = Experience.new(
   location: "amsterdam sloterdijk",
   title: 'a chill drink to meet people',
   description: "Let's get a drink together and have fun with some snacks etc etcetc",
-  exp_type: "beer",
+  exp_type: "wellbeing",
   price: 10,
-  date:  DateTime.new(2024, 8, 16, 20, 00, 0),
+  date:  DateTime.new(2024, 12, 16, 20, 00, 0),
 )
 exp2.save
