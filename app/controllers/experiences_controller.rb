@@ -3,6 +3,10 @@ class ExperiencesController < ApplicationController
 
   def index
     @experiences = Experience.all
+    # filter out the experiences that are full or owned but the user
+    raise
+
+
   end
 
   def show

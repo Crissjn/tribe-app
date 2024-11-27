@@ -1,5 +1,5 @@
 class Experience < ApplicationRecord
-  has_one_attached :photo
+  has_many_attached :photos
   has_many :bookings, dependent: :destroy
   belongs_to :user
   geocoded_by :location
@@ -12,7 +12,7 @@ class Experience < ApplicationRecord
   validates :min_participants, comparison: { greater_than: 1 }
 
   def full?
-     self.bookings == self.max_participants
+     self.num_partecipants == self.max_participants
   end
 
   def finished?
@@ -20,10 +20,14 @@ class Experience < ApplicationRecord
   end
 
   def can_happen?
-    num_partecipants >= nim_partecipants
+    num_partecipants >= min_partecipants
   end
 
   def num_partecipants
-    experience.bookings.count
+    self.bookings.count
+  end
+
+  def booked_in?(user)
+    self.bookings.where(user: user).exists?
   end
 end
