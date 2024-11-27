@@ -1,15 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-4">
-      <h2 class="mb-4">Create a new experience</h2>
+      <h2 class="mb-4">Edit an experience</h2>
       <%= simple_form_for(@experience) do |f| %>
         <div class="form-inputs mb-3">
           <%= f.input :title %>
-          <%= f.input :exp_type, collection: ['adventure-sport', 'food-drinks', 'eco', 'culture', 'wellbeing']%>
-          <div class="row">
-          <%= f.input :max_participants %><%= f.input :min_participants %>
-          </div>
-          <%= f.input :date,  html5: true%>
+          <%= f.input :exp_type %>
+          <%= f.input :max_participants %>
+          <%= f.input :min_participants %>
+          <%= f.input :date %>
           <%= f.input :location %>
           <%= f.input :description %>
 

@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :experiences
 
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  validates :username, presence: true, uniqueness: true
 end
