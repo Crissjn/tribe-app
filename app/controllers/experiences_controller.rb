@@ -22,10 +22,11 @@ class ExperiencesController < ApplicationController
 
   def create
     @experience = Experience.new(experience_params)
-    @experience.user = @user
+     @experience.user = @user
     if @experience.save
       @self_book = Booking.new(user: @user, experience: @experience)
-      redirect_to experiences_path(@experience)
+      @self_book.save
+      redirect_to experience_path(@experience)
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,12 +34,23 @@ class ExperiencesController < ApplicationController
 
   def edit
     @experience = Experience.find(params[:id])
+    redirect_to experiences_path(@experience)
   end
 
   def update
       @experience = Experience.find(params[:id])
       @experience.update(experience_params)
-      redirect_to dashboard_path
+      redirect_to experiences_path(@experience)
+  end
+
+  def destroy
+      @experience = Experience.find(params[:id])
+      if @experience.finished?
+        render "experiences/show", alert: "The experience cannot be deleted if finished"
+      else
+        @experience.destroy
+        redirect_to dashboard_path, status: :see_other, alert: "experience deleted!"
+      end
   end
 
   private
@@ -48,6 +60,6 @@ class ExperiencesController < ApplicationController
   end
 
   def experience_params
-    params.require(:experience).permit(:exp_type, :max_participants, :min_participants, :date, :description, :location, :title )
+    params.require(:experience).permit(:exp_type, :max_participants, :min_participants, :date, :description, :location, :title, :photo )
   end
 end

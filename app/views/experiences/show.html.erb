@@ -4,6 +4,9 @@
 <% if @experience.user == @user %>
   <h3>You own this experience</h3>
    <%= link_to "Edit this experience" , edit_experience_path(@experience)  %>
+   <%= link_to "Delete this experience",
+                experience_path(@experience),
+                 data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
 <% else %>
   <%= link_to "Book this experience" , experience_bookings_path(@experience) , data: {turbo_method: "post"} %>
 <% end %>
@@ -12,4 +15,4 @@
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>  
+</div>
