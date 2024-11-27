@@ -16,9 +16,9 @@
 <%# card 1 %>
     <div class="col">
       <div class="card-category">
-        <img src="assets/images/" alt="adventure" class="card-category img-top">
+        <img src="/assets/adventure.jpeg" alt="adventure" class="card-category img-top">
           <div class="card-body">
-            <h5 class="card-title">Adventure</h5>
+            <h6 class="card-title">Adventure</h6>
         </div>
       </div>
     </div>
@@ -26,9 +26,9 @@
   <%# card 2 %>
       <div class="col">
         <div class="card-category">
-          <img src="assets/images/" alt="eco experience" class="card-category img-top">
+          <img src="assets/meditation.jpeg" alt="eco experience" class="card-category img-top">
             <div class="card-body">
-              <h5 class="card-title">Eco</h5>
+              <h6 class="card-title">Wellbeing</h6>
           </div>
         </div>
       </div>
@@ -36,43 +36,25 @@
     <%# card 3 %>
       <div class="col">
         <div class="card-category">
-          <img src="assets/images/" alt="culture experience" class="card-category img-top">
+          <img src="assets/culture.jpeg/" alt="culture experience" class="card-category img-top">
             <div class="card-body">
-              <h5 class="card-title">Culture</h5>
+              <h6 class="card-title">Culture</h6>
           </div>
         </div>
       </div>
 
-      <%# card 4 %>
+        <%# card 4 %>
       <div class="col">
         <div class="card-category">
-          <img src="assets/images/" alt="Eco experience" class="card-category img-top">
+          <img src="assets/food.jpeg/" alt="food and drink experience" class="card-category img-top">
             <div class="card-body">
-              <h5 class="card-title">Eco</h5>
-          </div>
-        </div>
-      </div>
-
-        <%# card 5 %>
-      <div class="col">
-        <div class="card-category">
-          <img src="assets/images/" alt="food and drink experience" class="card-category img-top">
-            <div class="card-body">
-              <h5 class="card-title">Food & Drink</h5>
+              <h6 class="card-title">Food</h6>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <% categories = [
-    { emoji: "📸", label: "View", active: true },
-    { emoji: "🌱", label: "Nature", active: false },
-    { emoji: "🏖️", label: "Beach", active: false },
-    { emoji: "🍴", label: "Food Lover", active: false }
-  ] %>
-  <%= render 'shared/category_buttons', categories: categories %>
-
+  
   <section class="content-section">
     <h2>Popping now by view</h2>
 <div class="content-grid">
