@@ -12,14 +12,14 @@ Rails.application.routes.draw do
     end
 
     # Nested bookings routes under experiences
-    resources :bookings, only: [:create, :new]
+    resources :bookings, only: [:create, :new, :index]
   end
 
   # Bookings routes
-  resources :bookings, only: [:index] do
+  resources :bookings, only: [:show] do
+    resources :messages, only: :create
     member do
       get 'confirmation' # Route for the booking confirmation page
-      get 'chat', to: 'chats#index' # Show the chat interface for group members
     end
   end
 
