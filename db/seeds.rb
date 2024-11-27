@@ -66,31 +66,34 @@ experience_types_array = [['adventure-sport', adventure],
 
 puts "Users created"
 puts "Creating experiences"
-# exp1 = Experience.new(
-#   max_participants: 5,
-#   min_participants: 3,
-#   user_id: criss.id,
-#   location: "Amsterdam Centraal",
-#   title: " A nice hike from centraal",
-#   description: "Open activity Let's walk together somewhere ",
-#   exp_type: "Hiking",
-#   price: 0,
-#   date:  DateTime.new(2024, 8, 16, 12, 30, 0),
-# )
-# exp1.save
 
-# exp2 = Experience.new(
-#   max_participants: 5,
-#   min_participants: 3,
-#   user_id: kelvin.id,
-#   location: "amsterdam sloterdijk",
-#   title: 'a chill drink to meet people',
-#   description: "Let's get a drink together and have fun with some snacks etc etcetc",
-#   exp_type: "beer",
-#   price: 10,
-#   date:  DateTime.new(2024, 8, 16, 20, 00, 0),
-# )
-# exp2.save
+exp1 = Experience.new(
+  max_participants: 5,
+  min_participants: 3,
+  user_id: criss.id,
+  location: "Amsterdam Centraal",
+  title: " A nice hike from centraal",
+  description: "Open activity Let's walk together somewhere ",
+  exp_type: "adventure-sport",
+  price: 0,
+  date:  Faker::Time.between_dates(from: Date.today + 2, to: Date.today + 6, period: :all)
+)
+exp1.photo.attach(io: adventure, filename: "profile.png", content_type: "image/pgn")
+exp1.save
+
+exp2 = Experience.new(
+  max_participants: 5,
+  min_participants: 3,
+  user_id: kelvin.id,
+  location: "amsterdam sloterdijk",
+  title: 'a chill drink to meet people',
+  description: "Let's get a drink together and have fun with some snacks etc etcetc",
+  exp_type: "food-drinks",
+  price: 10,
+  date:  Faker::Time.between_dates(from: Date.today + 2, to: Date.today + 6, period: :all)
+)
+exp2.photo.attach(io: food, filename: "profile.png", content_type: "image/pgn")
+exp2.save
 
 12.times do
   sample = experience_types_array.sample
@@ -103,7 +106,7 @@ puts "Creating experiences"
     description: "Let's get together to do something nice somewhere",
     exp_type: sample[0],
     price: rand(1..20),
-    date:  Faker::Time.between_dates(from: Date.today + 2, to: Date.today + 6, period: :all) #=> "2014-09-19 07:03:30 -0700"
+    date:  Faker::Time.between_dates(from: Date.today + 2, to: Date.today + 6, period: :all)
   )
   temp.photo.attach(io: sample[1], filename: "profile.png", content_type: "image/pgn")
   temp.save
