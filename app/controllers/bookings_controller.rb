@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
 
     @booking.experience = Experience.find(params[:experience_id])
 
-    if @booking.experience.full? || @booking.save
+    if @booking.save
       redirect_to bookings_path(@booking)
     else
       puts "not good"

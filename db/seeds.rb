@@ -65,7 +65,45 @@ experience_types_array = [['adventure-sport', adventure],
                           ['wellbeing', wellbeing]]
 
 puts "Users created"
-puts "Creating experiences"
+puts "Creating experiences and self booking the creator"
+
+past_exp = Experience.new(
+  max_participants: 5,
+  min_participants: 3,
+  user_id: kelvin.id,
+  location: "Amsterdam Centraal",
+  title: " A nice hike from centraal",
+  description: "Open activity Let's walk together somewhere ",
+  exp_type: "adventure-sport",
+  price: 0,
+  date:  Faker::Time.between_dates(from: Date.today - 8, to: Date.today - 4 , period: :all)
+)
+past_exp.photos.attach(io: adventure, filename: "profile.png", content_type: "image/pgn")
+past_exp.save(validate: false)
+booking = Booking.new(
+  user_id: kelvin.id,
+  experience_id: past_exp.id
+)
+booking.save
+
+past_exp2 = Experience.new(
+  max_participants: 5,
+  min_participants: 3,
+  user_id: criss.id,
+  location: "Amsterdam Centraal",
+  title: " A nice hike from centraal",
+  description: "Open activity Let's walk together somewhere ",
+  exp_type: "adventure-sport",
+  price: 0,
+  date:  Faker::Time.between_dates(from: Date.today - 4, to: Date.today - 2, period: :all)
+)
+past_exp2.photos.attach(io: adventure, filename: "profile.png", content_type: "image/pgn")
+past_exp2.save(validate: false)
+booking = Booking.new(
+  user_id: criss.id,
+  experience_id: past_exp2.id
+)
+booking.save
 
 exp1 = Experience.new(
   max_participants: 5,
@@ -77,10 +115,15 @@ exp1 = Experience.new(
 
   exp_type: "adventure-sport",
   price: 0,
-  date:  Faker::Time.between_dates(from: Date.today + 2, to: Date.today + 6, period: :all)
+  date:  Faker::Time.between_dates(from: Date.today + 2, to: Date.today + 5, period: :all)
 )
-exp1.photo.attach(io: adventure, filename: "profile.png", content_type: "image/pgn")
+exp1.photos.attach(io: adventure, filename: "profile.png", content_type: "image/pgn")
 exp1.save
+booking = Booking.new(
+  user_id: criss.id,
+  experience_id: exp1.id
+)
+booking.save
 
 exp2 = Experience.new(
   max_participants: 5,
@@ -94,8 +137,13 @@ exp2 = Experience.new(
   date:  Faker::Time.between_dates(from: Date.today + 2, to: Date.today + 6, period: :all)
 
 )
-exp2.photo.attach(io: food, filename: "profile.png", content_type: "image/pgn")
+exp2.photos.attach(io: food, filename: "profile.png", content_type: "image/pgn")
 exp2.save
+booking = Booking.new(
+  user_id: kelvin.id,
+  experience_id: exp2.id
+)
+booking.save
 
 12.times do
   sample = experience_types_array.sample
@@ -110,9 +158,14 @@ exp2.save
     price: rand(1..20),
     date:  Faker::Time.between_dates(from: Date.today + 2, to: Date.today + 6, period: :all)
   )
-  temp.photo.attach(io: sample[1], filename: "profile.png", content_type: "image/pgn")
+  temp.photos.attach(io: sample[1], filename: "profile.png", content_type: "image/pgn")
   temp.save
+  # selfbooking the creator to the experience
+  booking = Booking.new(
+    user_id: kelvin.id,
+    experience_id: temp.id
+  )
+  booking.save
 end
 
-puts "#{Experience.all.count} experiences created."
-# ('adventure-sport' 'food-drinks' 'eco' 'culture' 'wellbeing'),
+puts "#{Experience.all.count} experiences and #{Booking.all.count} bookings created"

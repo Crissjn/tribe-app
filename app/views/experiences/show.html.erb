@@ -1,9 +1,19 @@
-<h1>ciao</h1>
-<h1><%= @user.username %> </h1>
-<h1>Participants <%= @experience.bookings.count %> on <%= @experience.max_participants %> <%= @experience.full? %></h1>
+
+
+<h1> This experience belongs to <%= @experience.user.username %> </h1>
+<h1>Partecipants <%= @experience.num_partecipants %> on <%= @experience.max_participants %></h1>
+<%#  if you are the owner of the experience show edit/delete button %>
 <% if @experience.user == @user %>
   <h3>You own this experience</h3>
    <%= link_to "Edit this experience" , edit_experience_path(@experience)  %>
+   <%= link_to "Delete this experience",
+                experience_path(@experience),
+                 data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+<% elsif @experience.full? %>
+<%# if experience is full show "sorry " %>
+  <p>Sorry the experience is fully booked.</p>
+<% elsif @experience.booked_in?(@user) %>
+<p>You are already booked for this experience.</p>
 <% else %>
   <%= link_to "Book this experience" , experience_bookings_path(@experience) , data: {turbo_method: "post"} %>
 <% end %>
