@@ -40,7 +40,11 @@ class ExperiencesController < ApplicationController
 
   def edit
     @experience = Experience.find(params[:id])
+    if @experience.finished?
+        redirect_to experience_path, alert: "The experience cannot be edited when finished"
+    else
     redirect_to experiences_path(@experience)
+    end
   end
 
   def update
@@ -52,10 +56,10 @@ class ExperiencesController < ApplicationController
   def destroy
       @experience = Experience.find(params[:id])
       if @experience.finished?
-        render "experiences/show", alert: "The experience cannot be deleted if finished"
+        redirect_to experience_path, alert: "The experience cannot be deleted when finished"
       else
         @experience.destroy
-        redirect_to dashboard_path, status: :see_other, alert: "experience deleted!"
+        redirect_to dashboard_path, status: :see_other, alert: "Experience deleted!"
       end
   end
 
@@ -66,6 +70,6 @@ class ExperiencesController < ApplicationController
   end
 
   def experience_params
-    params.require(:experience).permit(:exp_type, :max_participants, :min_participants, :date, :description, :location, :title, :photo )
+    params.require(:experience).permit(:exp_type, :max_participants, :min_participants, :date, :description, :location, :title, :photos => [] )
   end
 end
