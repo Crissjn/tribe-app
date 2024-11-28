@@ -1,0 +1,28 @@
+<div class="booking-card">
+  
+  <div class="card-image-section">
+    <%= image_tag "greece.jpeg", alt: "greece", class: "card-image" %>
+    <button class="wishlist-icon" aria-label="Add to wishlist"></button>
+
+  </div>
+  
+  <div class="card-content-section">
+    <h3 class="card-title">Drinks and snacks</h3>
+    <p class="rating">
+      ★★★★★ <span class="number-of-people"></span>
+    </p>
+    <p class="location">Amsterdam, Netherlands</p>
+    
+    
+    <p class="number-of-people">
+      Participants: <%= @experience.bookings.count %> / <%= @experience.max_participants %>
+    </p>
+    
+    <p class="features">Chill, drink, and share experiences</p>
+    <div class="price-and-booking">
+      <p class="price">€12</p>
+      <p class="brand">TribeApp</p>
+      <button class="arrow-button" aria-label="Book now">→</button>
+    </div>
+  </div>
+</div>

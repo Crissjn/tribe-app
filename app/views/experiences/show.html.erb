@@ -1,8 +1,44 @@
-<h1>ciao</h1>
-<h1><%= @user.username %> </h1>
-<h1>Partecipants <%= @experience.bookings.count %> on <%= @experience.max_participants %> <%= @experience.full? %></h1>
-<% if @experience.user == @user %>
-  <h3>You own this experience</h3>
-<% else %>
-  <%= link_to "Book this experience" , experience_bookings_path(@experience) , data: {turbo_method: "post"} %>
-<% end %>
+
+  <div class="card-container">
+    
+    <div class="booking-card">
+      <%= image_tag 'greece.jpeg', class: 'card-image', alt: 'Greece view' %>
+      <div class="card-content">
+        <h2>Drinks and snacks</h2>
+        <p class="rating">★★★★★</p>
+        <p>Amsterdam, Netherlands</p>
+        <p><strong>Participants:</strong> 0 / 8</p>
+        <p>Chill, drink, and share experiences</p>
+        <p class="price">€12</p>
+        <a href="#" class="app-link">TribeApp →</a>
+      </div>
+    </div>
+
+  
+    <div class="booking-card">
+      <%= image_tag 'desert.jpeg', class: 'card-image', alt: 'Desert view' %>
+      <div class="card-content">
+        <h2>Wine Tasting Tour</h2>
+        <p class="rating">★★★★★</p>
+        <p>Paris, France</p>
+        <p><strong>Participants:</strong> 2 / 10</p>
+        <p>Enjoy a refined evening of wine tasting</p>
+        <p class="price">€25</p>
+        <a href="" class="app-link">TribeApp →</a>
+      </div>
+    </div>
+
+   
+    <div class="booking-card">
+      <%= image_tag 'norway.jpeg', class: 'card-image', alt: 'Norway view' %>
+      <div class="card-content">
+        <h2>Sunset Cruise</h2>
+        <p class="rating">★★★★☆</p>
+        <p>Barcelona, Spain</p>
+        <p><strong>Participants:</strong> 5 / 15</p>
+        <p>Relax and enjoy a beautiful sunset cruise</p>
+        <p class="price">€18</p>
+        <a href="#" class="app-link">TribeApp →</a>
+      </div>
+    </div>
+  </div>
