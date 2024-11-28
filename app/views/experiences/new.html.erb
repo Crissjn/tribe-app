@@ -1,25 +1,31 @@
 <div class="container">
   <div class="row">
-    <div class="col-4">
+
       <h2 class="mb-4">Create a new experience</h2>
       <%= simple_form_for(@experience) do |f| %>
         <div class="form-inputs mb-3">
           <%= f.input :title %>
           <%= f.input :exp_type, collection: ['adventure-sport', 'food-drinks', 'eco', 'culture', 'wellbeing']%>
           <div class="row">
-          <%= f.input :max_participants %><%= f.input :min_participants %>
+          <div class="col-6"><%= f.input :max_participants %> </div>
+          <div class="col-6"><%= f.input :min_participants %> </div>
           </div>
-          <%= f.input :date,  html5: true%>
+          <%= f.input :date,  input_html: {value:( Date.today )}, html5: true %>
           <%= f.input :location %>
           <%= f.input :description %>
-          <%= f.file :photo %>
 
+          <div class="form-photos" data-controller="multiple-files-form">
 
+          <%# .input :photos, as: :file, input_html: { multiple: true } %>
+
+          <%= f.file_field :photos, :multiple => true, :data => {:action => "multiple-files-form#addFile"} %>
+          <div data-multiple-files-form-target="files"></div>
+          </div>
         </div>
           <%= f.button :submit, "Create", class: "btn btn-primary w-100" %>
 
       <% end %>
 
-    </div>
+
   </div>
 </div>
