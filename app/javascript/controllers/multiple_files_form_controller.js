@@ -3,18 +3,17 @@ import { Controller } from "@hotwired/stimulus";
 // Connects to data-controller="multiple-files-form"
 export default class extends Controller {
   static targets = ["files"];
+  static values = { temp: Number };
   connect() {
     console.log("hello from multiple files form");
+    this.temp = 1;
   }
-  MAXPIC = 3;
-  temp=0
   addFile(event) {
     // Grab some references for later
     console.log(event.target);
-    if (temp == 3 )
-
-    else
-
+    if (this.temp === 3) {
+      console.log("limit reached");
+    } else {
       const originalInput = event.target;
       const originalParent = originalInput.parentNode;
 
@@ -42,7 +41,7 @@ export default class extends Controller {
 
       // Add it to the DOM where the original input was
       originalParent.append(newInput);
-    end
+      this.temp = this.temp + 1;
+    }
   }
-
 }
