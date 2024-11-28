@@ -10,7 +10,7 @@ class Experience < ApplicationRecord
 
   validates :date, presence: true, comparison: { greater_than: Date.today }
   validates :min_participants, comparison: { greater_than: 1 },presence: true
-  validates :description, length: {minimum: 10, maximum: 200}
+  validates :description, length: {minimum: 10, maximum: 200},presence: true
 
   def full?
      self.num_partecipants == self.max_participants

@@ -7,37 +7,42 @@ export default class extends Controller {
     console.log("hello from multiple files form");
   }
   MAXPIC = 3;
-
+  temp=0
   addFile(event) {
     // Grab some references for later
     console.log(event.target);
+    if (temp == 3 )
 
-    const originalInput = event.target;
-    const originalParent = originalInput.parentNode;
+    else
 
-    // Create an element that contains our input element
-    const selectedFile = document.createElement("div");
-    selectedFile.className = "selected-file";
-    selectedFile.append(originalInput);
+      const originalInput = event.target;
+      const originalParent = originalInput.parentNode;
 
-    // Create label (the visible part of the new input element) with the name of
-    // the selected file.
-    var labelNode = document.createElement("label");
-    var textElement = document.createTextNode(originalInput.files[0].name);
-    labelNode.appendChild(textElement);
-    selectedFile.appendChild(labelNode);
+      // Create an element that contains our input element
+      const selectedFile = document.createElement("div");
+      selectedFile.className = "selected-file";
+      selectedFile.append(originalInput);
 
-    // Add the selected file to the list of selected files
-    this.filesTarget.append(selectedFile);
+      // Create label (the visible part of the new input element) with the name of
+      // the selected file.
+      var labelNode = document.createElement("label");
+      var textElement = document.createTextNode(originalInput.files[0].name);
+      labelNode.appendChild(textElement);
+      selectedFile.appendChild(labelNode);
 
-    // Create a new input field to use going forward
-    const newInput = originalInput.cloneNode();
+      // Add the selected file to the list of selected files
+      this.filesTarget.append(selectedFile);
 
-    // Clear the filelist - some browsers maintain the filelist when cloning,
-    // others don't
-    newInput.value = "";
+      // Create a new input field to use going forward
+      const newInput = originalInput.cloneNode();
 
-    // Add it to the DOM where the original input was
-    originalParent.append(newInput);
+      // Clear the filelist - some browsers maintain the filelist when cloning,
+      // others don't
+      newInput.value = "";
+
+      // Add it to the DOM where the original input was
+      originalParent.append(newInput);
+    end
   }
+
 }
