@@ -1,4 +1,10 @@
 
+<div style="width: 100%; height: 300px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
 
 <h1> This experience belongs to <%= @experience.user.username %> </h1>
 <h1>Partecipants <%= @experience.num_partecipants %> on <%= @experience.max_participants %></h1>
@@ -23,3 +29,4 @@
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
+
