@@ -4,8 +4,9 @@ class ExperiencesController < ApplicationController
   def index
     @experiences = Experience.all
     # filter out the experiences that are full or owned but the user
-
-
+    if params[:query].present?
+      @experiences = @experiences.where("title ILIKE ?", "%#{params[:query]}%")
+    end
   end
 
   def show
@@ -18,6 +19,8 @@ class ExperiencesController < ApplicationController
       info_window_html: render_to_string(partial: "info_window", locals: {experience: @experience}),
       marker_html: render_to_string(partial: "marker", locals: {experience: @experience})
       }]
+      @booking = Booking.new
+      @bookings = @experience.bookings.where(user: current_user)
   end
 
   def new
