@@ -1,8 +1,8 @@
   <footer class="footer">
   <nav class="navbar">
-    <a href="/dashboard" class="nav-item <%= 'active' if current_page == 'feed' %>">🏠</a>
-     <a href="/experiences/new" class="nav-item <%= 'active' if current_page == 'profile' %>"><i class="fa-solid fa-plus"></i></a>
-    <a href="/bookings/1/chat" class="nav-item <%= 'active' if current_page == 'chat' %>">💬</a>
-     <a href="/users/edit" class="nav-item <%= 'active' if current_page == 'profile' %>">👤</a>
+    <a href="/dashboard" class="nav-item <%= 'active' if current_page?("/") %>">🏠</a>
+     <a href="/experiences/new" class="nav-item <%= 'active' if current_page?("/experiences/new") %>"><i class="fa-solid fa-plus"></i></a>
+    <a href="/bookings/1/chat" class="nav-item <%= 'active' if current_page? == 'chat' %>">💬</a>
+     <a href="/users/edit" class="nav-item <%= 'active' if current_page? == 'profile' %>">👤</a>
   </nav>
 </footer>
