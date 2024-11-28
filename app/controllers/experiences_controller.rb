@@ -11,6 +11,7 @@ class ExperiencesController < ApplicationController
 
   def show
     @experience = Experience.find(params[:id])
+    raise
     @markers = [{
       lat: @experience.latitude,
       lng: @experience.longitude,
@@ -66,6 +67,6 @@ class ExperiencesController < ApplicationController
   end
 
   def experience_params
-    params.require(:experience).permit(:exp_type, :max_participants, :min_participants, :date, :description, :location, :title, :photo )
+    params.require(:experience).permit(:exp_type, :max_participants, :min_participants, :date, :description, :location, :title, :photos => [] )
   end
 end

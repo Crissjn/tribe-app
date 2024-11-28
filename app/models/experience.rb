@@ -9,7 +9,8 @@ class Experience < ApplicationRecord
                                     message: "%{value} is not a valid bike size" }
 
   validates :date, presence: true, comparison: { greater_than: Date.today }
-  validates :min_participants, comparison: { greater_than: 1 }
+  validates :min_participants, comparison: { greater_than: 1 },presence: true
+  validates :description, length: {minimum: 10, maximum: 200},presence: true
 
   def full?
      self.num_partecipants == self.max_participants
@@ -29,5 +30,9 @@ class Experience < ApplicationRecord
 
   def booked_in?(user)
     self.bookings.where(user: user).exists?
+  end
+
+  def get_photos
+    self.photos
   end
 end
