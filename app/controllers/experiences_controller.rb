@@ -4,8 +4,9 @@ class ExperiencesController < ApplicationController
   def index
     @experiences = Experience.all
     # filter out the experiences that are full or owned but the user
-
-
+    if params[:query].present?
+      @experiences = @experiences.where("title ILIKE ?", "%#{params[:query]}%")
+    end
   end
 
   def show
