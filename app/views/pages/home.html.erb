@@ -13,20 +13,21 @@
     <button class="search-button" aria-label="Search">Search</button>
   </div>
 
-  
-  <div class="categories">
-    <% categories = [
-      { emoji: "📸", label: "View", active: true },
-      { emoji: "🌱", label: "Nature", active: false },
-      { emoji: "🏖️", label: "Beach", active: false },
-      { emoji: "🍴", label: "Food Lover", active: false }
-    ] %>
 
-    <% categories.each do |category| %>
-      <button class="category-button <%= 'active' if category[:active] %>" aria-pressed="<%= category[:active] %>">
-        <%= category[:emoji] %> <%= category[:label] %>
-      </button>
-    <% end %>
+
+
+
+
+  <section class="content-section">
+    <h2>Popping now by view</h2>
+<div class="content-grid">
+  <!-- Card 1 -->
+  <div class="card">
+    <%= image_tag 'desert.jpeg', alt: 'Amazing desert view', class: 'small-image' %>
+    <div class="card-info">
+      <p>On my next trip to Greece will have a spot here</p>
+      <span class="author">Mimi</span>
+    </div>
   </div>
 
   
@@ -49,6 +50,9 @@
         </div>
       <% end %>
     </div>
+  </div>
+</div>
+
   </section>
 
   

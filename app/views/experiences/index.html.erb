@@ -1,28 +1,77 @@
-<div class="booking-card">
-  
-  <div class="card-image-section">
-    <%= image_tag "greece.jpeg", alt: "greece", class: "card-image" %>
-    <button class="wishlist-icon" aria-label="Add to wishlist"></button>
 
+<div class="homepage">
+  <header class="header">
+    <button class="notification-icon">🔔</button>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Have some topics to cover?" />
+    <button class="search-button">🔍</button>
   </div>
-  
-  <div class="card-content-section">
-    <h3 class="card-title">Drinks and snacks</h3>
-    <p class="rating">
-      ★★★★★ <span class="number-of-people"></span>
-    </p>
-    <p class="location">Amsterdam, Netherlands</p>
-    
-    
-    <p class="number-of-people">
-      Participants: <%= @experience.bookings.count %> / <%= @experience.max_participants %>
-    </p>
-    
-    <p class="features">Chill, drink, and share experiences</p>
-    <div class="price-and-booking">
-      <p class="price">€12</p>
-      <p class="brand">TribeApp</p>
-      <button class="arrow-button" aria-label="Book now">→</button>
+
+<div class="container">
+  <div class="row">
+  <!-- Flexbox Container for Cards -->
+  <div class="d-flex justify-content-between">
+    <div class="cards">
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/adventure.jpeg')">
+            Adventure
+          </div>
+
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/meditation.jpeg')">
+            Wellbeing
+          </div>
+
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/culture.jpeg')">
+            Culture
+          </div>
+
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/food.jpeg')">
+            Food
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+
+
+
+  <section class="content-section">
+    <h2>Popping now by view</h2>
+<div class="content-grid">
+  <!-- Card 1 -->
+  <div class="card">
+    <%= image_tag 'desert.jpeg', alt: 'Amazing desert view', class: 'small-image' %>
+    <div class="card-info">
+      <p>On my next trip to Greece will have a spot here</p>
+      <span class="author">Mimi</span>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <%= image_tag 'greece.jpeg', alt: 'View of Greece', class: 'small-image' %>
+    <div class="card-info">
+      <p>The 25 Best Things to Do and See in Norway</p>
+      <span class="author">Leo</span>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <%= image_tag 'norway.jpeg', alt: 'Stunning Norway scenery', class: 'small-image' %>
+    <div class="card-info">
+      <p>Amazing desert views</p>
+      <span class="author">User</span>
     </div>
   </div>
 </div>
+
+  </section>
+
+
+  <%= render 'shared/footer', current_page: 'feed' %>
+</div>
+
