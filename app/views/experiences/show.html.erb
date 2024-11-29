@@ -1,6 +1,6 @@
 
   <div class="card-container">
-    
+
     <div class="booking-card">
       <%= image_tag 'greece.jpeg', class: 'card-image', alt: 'Greece view' %>
       <div class="card-content">
@@ -14,7 +14,7 @@
       </div>
     </div>
 
-  
+
     <div class="booking-card">
       <%= image_tag 'desert.jpeg', class: 'card-image', alt: 'Desert view' %>
       <div class="card-content">
@@ -28,7 +28,7 @@
       </div>
     </div>
 
-   
+
     <div class="booking-card">
       <%= image_tag 'norway.jpeg', class: 'card-image', alt: 'Norway view' %>
       <div class="card-content">
@@ -68,4 +68,11 @@
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-
+<% if @bookings.exists? %>
+  <h2>YOUR BOOKINGS</h2>
+  <ul>
+    <% @bookings.each do |booking| %>
+    <li><%= link_to booking.experience.title, booking  %></li>
+  <% end %>
+</ul>
+<% end %>

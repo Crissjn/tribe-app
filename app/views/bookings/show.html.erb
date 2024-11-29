@@ -1,15 +1,21 @@
 <div class="container chat">
-  <h1>Your booking for <%= @booking.experience.name %></h1>
+  <h1>Your booking for <%= @booking.experience.title %></h1>
 
   <div id="messages" class="messages">
     <% @booking.messages.each do |message| %>
-      <div id="message-<%= message.id %>">
-        <small>
-          <strong><%= message.username %></strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= message.content %></p>
-      </div>
+      <%= render "messages/message", message: message %>
     <% end %>
-  </div>
+    </div>
+    <div>
+      <%= simple_form_for [@booking, @message],
+      html: {class: "d-flex",
+         data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f| %>
+      <% other_user = current_user == @booking.experience.user ? @booking.user : @booking.experience.user %>
+      <%= f.input :content,
+        label: false,
+        placeholder: "Message the group",
+        wrapper_html: { class: "flex-grow-1"} %>
+      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+      <% end %>
+    </div>
 </div>

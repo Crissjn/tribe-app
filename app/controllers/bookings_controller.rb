@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.experience = Experience.find(params[:experience_id])
 
     if @booking.save
-      redirect_to bookings_path(@booking)
+      redirect_to experience_path(@experience)
     else
       puts "not good"
       # render :new, status: :unprocessable_entity

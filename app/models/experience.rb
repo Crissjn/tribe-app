@@ -32,7 +32,4 @@ class Experience < ApplicationRecord
     self.bookings.where(user: user).exists?
   end
 
-  def get_photos
-    self.photos
-  end
 end
