@@ -1,6 +1,6 @@
 
   <div class="card-container">
-    
+
     <div class="booking-card">
       <%= image_tag 'greece.jpeg', class: 'card-image', alt: 'Greece view' %>
       <div class="card-content">
@@ -14,7 +14,7 @@
       </div>
     </div>
 
-  
+
     <div class="booking-card">
       <%= image_tag 'desert.jpeg', class: 'card-image', alt: 'Desert view' %>
       <div class="card-content">
@@ -28,7 +28,7 @@
       </div>
     </div>
 
-   
+
     <div class="booking-card">
       <%= image_tag 'norway.jpeg', class: 'card-image', alt: 'Norway view' %>
       <div class="card-content">
@@ -57,15 +57,13 @@
 <%# if experience is full show "sorry " %>
   <p>Sorry the experience is fully booked.</p>
 <% elsif @experience.booked_in?(@user) %>
-<p>You are already booked for this experience.</p>
+  <p>You are already booked for this experience.</p>
 <% else %>
   <%= link_to "Book this experience" , experience_bookings_path(@experience) , data: {turbo_method: "post"} %>
 <% end %>
 
-<div style="width: 50%; height: 300px;"
+<div style="width: 50%; height: 200px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-
-
