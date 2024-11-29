@@ -18,6 +18,8 @@ culture = URI.parse("https://collegelife.co/wp-content/uploads/2022/08/153-1-1.p
 eco = URI.parse("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJl0ThTOtheLgZYsi7APfH74COhZEXVT8b9A&s").open
 food = URI.parse("https://online.jwu.edu/wp-content/uploads/2023/06/Bev20Pairing20-20tiny.jpg").open
 adventure = URI.parse("https://cdn.outsideonline.com/wp-content/uploads/2023/04/guided-hike_h-1024x576.jpg?width=1200").open
+adventure2 = URI.parse("https://cdn.outsideonline.com/wp-content/uploads/2023/04/guided-hike_h-1024x576.jpg?width=1200").open
+adventure3 = URI.parse("https://cdn.outsideonline.com/wp-content/uploads/2023/04/guided-hike_h-1024x576.jpg?width=1200").open
 
 puts "Cleaning table..."
 Booking.destroy_all
@@ -113,7 +115,7 @@ past_exp2 = Experience.new(
   price: 0,
   date:  Faker::Time.between_dates(from: Date.today - 4, to: Date.today - 2, period: :all)
 )
-past_exp2.photos.attach(io: adventure, filename: "profile.png", content_type: "image/pgn")
+past_exp2.photos.attach(io: adventure2, filename: "profile.png", content_type: "image/pgn")
 past_exp2.save(validate: false)
 booking = Booking.new(
   user_id: criss.id,
@@ -133,7 +135,7 @@ exp1 = Experience.new(
   price: 0,
   date:  Faker::Time.between_dates(from: Date.today + 2, to: Date.today + 5, period: :all)
 )
-exp1.photos.attach(io: adventure, filename: "profile.png", content_type: "image/pgn")
+exp1.photos.attach(io: adventure3, filename: "profile.png", content_type: "image/pgn")
 exp1.save
 booking = Booking.new(
   user_id: criss.id,
