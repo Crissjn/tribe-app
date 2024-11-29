@@ -1,5 +1,4 @@
 import { Application } from "@hotwired/stimulus";
-import "./background";
 const application = Application.start();
 
 // Configure Stimulus development experience
