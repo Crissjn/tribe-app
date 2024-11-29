@@ -1,13 +1,13 @@
 
 <div class="homepage">
-  <header class="header">
+  <%# <header class="header">
     <button class="notification-icon">🔔</button>
-  </header>
+  </header> %>
 
-  <div class="search-bar">
+  <%# <div class="search-bar">
     <input type="text" placeholder="Have some topics to cover?" />
     <button class="search-button">🔍</button>
-  </div>
+  </div> %>
 
 <div class="container">
   <div class="row">
@@ -15,44 +15,32 @@
 
     <div class="d-flex justify-content-between">
 
-
-<%# card 1 %>
-    <div class="col">
-      <div class="card-category text-center">
-        <img src="/assets/adventure.jpeg" alt="adventure" class="card-category img-top">
-          <div class="card-body">
-            <h6 class="card-title">Adventure</h6>
-        </div>
-      </div>
-    </div>
-
-  <%# card 2 %>
-      <div class="col">
-        <div class="card-category text-center">
-          <img src="assets/meditation.jpeg" alt="eco experience" class="card-category img-top">
-            <div class="card-body">
-              <h6 class="card-title">Wellbeing</h6>
-
+          <%= link_to "/experiences?query=adventure-sport" do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/adventure.jpeg')">
+            Adventure
           </div>
-
+          <% end %>
+           <%= link_to "/experiences?query=wellbeing" do %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/meditation.jpeg')">
             Wellbeing
           </div>
-
+          <% end %>
+           <%= link_to "/experiences?query=culture" do %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/culture.jpeg')">
             Culture
           </div>
-
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/food.jpeg')">
+           <% end %>
+           <%= link_to "/experiences?query=food-drinks" do %>
+         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/food.jpeg')">
             Food
       </div>
+       <% end %>
     </div>
-  </div>
   </div>
   </div>
 
   <section class="content-section">
-    <h2>Popping now by view</h2>
+
 <div class="content-grid">
 
   <% @experiences.each do |experience| %>
