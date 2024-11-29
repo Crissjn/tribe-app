@@ -1,6 +1,23 @@
 
+<div class="container">
+  <div style="width: 100%; height: 300px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+ <div class="d-flex justify-content-start card-container">
+  <%= cl_image_tag @experience.photos[0].key, width: "100%" %>
+   <h2> <%= @experience.title %> </h2>
+   <h5> <%= @experience.location %> </h5>
+   <h5> <%= @experience.description %> </h5>
+
+</div>
+
+</div>
+<% if false %>
   <div class="card-container">
-    
+
     <div class="booking-card">
       <%= image_tag 'greece.jpeg', class: 'card-image', alt: 'Greece view' %>
       <div class="card-content">
@@ -14,7 +31,7 @@
       </div>
     </div>
 
-  
+
     <div class="booking-card">
       <%= image_tag 'desert.jpeg', class: 'card-image', alt: 'Desert view' %>
       <div class="card-content">
@@ -28,7 +45,7 @@
       </div>
     </div>
 
-   
+
     <div class="booking-card">
       <%= image_tag 'norway.jpeg', class: 'card-image', alt: 'Norway view' %>
       <div class="card-content">
@@ -42,7 +59,7 @@
       </div>
     </div>
   </div>
-
+<% end %>
 
 <h1> This experience belongs to <%= @experience.user.username %> </h1>
 <h1>Partecipants <%= @experience.num_partecipants %> on <%= @experience.max_participants %></h1>
@@ -61,11 +78,3 @@
 <% else %>
   <%= link_to "Book this experience" , experience_bookings_path(@experience) , data: {turbo_method: "post"} %>
 <% end %>
-
-<div style="width: 50%; height: 300px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-
-
