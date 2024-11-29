@@ -60,9 +60,14 @@ criss.save
 
 experience_types_array = [['adventure-sport', adventure],
                           ['food-drinks', food],
-                          ['eco', eco],
+                          # ['eco', eco],
                           ['culture', culture],
                           ['wellbeing', wellbeing]]
+locations_array = ["IJsbaanpad 9, 1076 CV Amsterdamn",
+                   "Den Haag",
+                   "Amsterdam Amstelstation",
+                   "Amsterdam Bijlmer Arena",
+                   "Volendam, Netherlands"]
 
 puts "Users created"
 puts "Creating experiences and self booking the creator"
@@ -71,7 +76,7 @@ past_exp = Experience.new(
   max_participants: 5,
   min_participants: 3,
   user_id: kelvin.id,
-  location: "Amsterdam Centraal",
+  location: locations_array.sample,
   title: " A nice hike from centraal",
   description: "Open activity Let's walk together somewhere ",
   exp_type: "adventure-sport",
@@ -90,7 +95,7 @@ past_exp2 = Experience.new(
   max_participants: 5,
   min_participants: 3,
   user_id: criss.id,
-  location: "Amsterdam Centraal",
+  location: locations_array.sample,
   title: " A nice hike from centraal",
   description: "Open activity Let's walk together somewhere ",
   exp_type: "adventure-sport",
@@ -109,7 +114,7 @@ exp1 = Experience.new(
   max_participants: 5,
   min_participants: 3,
   user_id: criss.id,
-  location: "Amsterdam Centraal",
+  location: locations_array.sample,
   title: " A nice hike from centraal",
   description: "Open activity Let's walk together somewhere ",
 
@@ -129,7 +134,7 @@ exp2 = Experience.new(
   max_participants: 5,
   min_participants: 3,
   user_id: kelvin.id,
-  location: "amsterdam sloterdijk",
+  location: locations_array.sample,
   title: 'a chill drink to meet people',
   description: "Let's get a drink together and have fun with some snacks etc etcetc",
   exp_type: "food-drinks",
@@ -145,13 +150,13 @@ booking = Booking.new(
 )
 booking.save
 
-12.times do
+15.times do
   sample = experience_types_array.sample
   temp = Experience.new(
     max_participants: 6,
     min_participants: 3,
     user_id: kelvin.id,
-    location: Faker::Address.city,
+    location: locations_array.sample,
     title: Faker::Hobby.activity,
     description: "Let's get together to do something nice somewhere",
     exp_type: sample[0],
