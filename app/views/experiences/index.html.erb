@@ -15,18 +15,26 @@
 
     <div class="d-flex justify-content-between">
 
+          <%= link_to "/experiences?query=adventure-sport" do %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/adventure.jpeg')">
             Adventure
           </div>
+          <% end %>
+           <%= link_to "/experiences?query=wellbeing" do %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/meditation.jpeg')">
             Wellbeing
           </div>
+          <% end %>
+           <%= link_to "/experiences?query=culture" do %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/culture.jpeg')">
             Culture
           </div>
+           <% end %>
+           <%= link_to "/experiences?query=food-drinks" do %>
          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/food.jpeg')">
             Food
       </div>
+       <% end %>
     </div>
   </div>
   </div>
