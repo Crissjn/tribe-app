@@ -28,7 +28,7 @@ kelvin = User.new(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-kelvin.photo.attach(io: file, filename: "profile.png", content_type: "image/png")
+kelvin.photo.attach(io: file, filename: "kelvin_profile.png", content_type: "image/png")
 kelvin.save
 
 puts "made Kelvin"
@@ -39,8 +39,10 @@ james = User.new(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-james.photo.attach(io: file, filename: "profile.png", content_type: "image/png")
+james.photo.attach(io: file, filename: "james_profile.png", content_type: "image/png")
 james.save
+
+puts "made James"
 
 rodrigo = User.new(
   username: 'rodrigo',
@@ -48,8 +50,10 @@ rodrigo = User.new(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-rodrigo.photo.attach(io: file, filename: "profile.png", content_type: "image/png")
+rodrigo.photo.attach(io: file, filename: "rodrigo_profile.png", content_type: "image/png")
 rodrigo.save
+
+puts "made Rodrigo"
 
 criss = User.new(
   username: 'criss',
@@ -57,8 +61,10 @@ criss = User.new(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-criss.photo.attach(io: file, filename: "profile.png", content_type: "image/png")
+criss.photo.attach(io: file, filename: "criss_profile.png", content_type: "image/png")
 criss.save
+
+puts "made Criss"
 
 experience_types_array = [['adventure-sport', adventure],
                           ['food-drinks', food],
