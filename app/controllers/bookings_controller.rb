@@ -6,11 +6,11 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new
     @booking.user = current_user
-
-    @booking.experience = Experience.find(params[:experience_id])
+    @experience = Experience.find(params[:experience_id])
+    @booking.experience = @experience
 
     if @booking.save
-      redirect_to bookings_path(@booking)
+      redirect_to experience_path(@experience)
     else
       puts "not good"
       # render :new, status: :unprocessable_entity
