@@ -10,6 +10,9 @@
 require "open-uri"
 
 file = URI.parse("https://t3.ftcdn.net/jpg/06/95/63/36/360_F_695633635_fEruwn09WukVX3T1E8jcTPj7CLte2hPx.jpg").open
+file2 = URI.parse("https://t3.ftcdn.net/jpg/06/95/63/36/360_F_695633635_fEruwn09WukVX3T1E8jcTPj7CLte2hPx.jpg").open
+file3 = URI.parse("https://t3.ftcdn.net/jpg/06/95/63/36/360_F_695633635_fEruwn09WukVX3T1E8jcTPj7CLte2hPx.jpg").open
+file4 = URI.parse("https://t3.ftcdn.net/jpg/06/95/63/36/360_F_695633635_fEruwn09WukVX3T1E8jcTPj7CLte2hPx.jpg").open
 wellbeing = URI.parse("https://upload.wikimedia.org/wikipedia/commons/e/e3/Flamingo_Spa_%26_Wellness.jpg").open
 culture = URI.parse("https://collegelife.co/wp-content/uploads/2022/08/153-1-1.png").open
 eco = URI.parse("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJl0ThTOtheLgZYsi7APfH74COhZEXVT8b9A&s").open
@@ -39,7 +42,7 @@ james = User.new(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-james.photo.attach(io: file, filename: "james_profile.png", content_type: "image/png")
+james.photo.attach(io: file2, filename: "james_profile.png", content_type: "image/png")
 james.save
 
 puts "made James"
@@ -50,7 +53,7 @@ rodrigo = User.new(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-rodrigo.photo.attach(io: file, filename: "rodrigo_profile.png", content_type: "image/png")
+rodrigo.photo.attach(io: file3, filename: "rodrigo_profile.png", content_type: "image/png")
 rodrigo.save
 
 puts "made Rodrigo"
@@ -61,7 +64,7 @@ criss = User.new(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-criss.photo.attach(io: file, filename: "criss_profile.png", content_type: "image/png")
+criss.photo.attach(io: file4, filename: "criss_profile.png", content_type: "image/png")
 criss.save
 
 puts "made Criss"
