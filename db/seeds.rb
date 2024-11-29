@@ -60,7 +60,7 @@ criss.save
 
 experience_types_array = [['adventure-sport', adventure],
                           ['food-drinks', food],
-                          ['eco', eco],
+                          # ['eco', eco],
                           ['culture', culture],
                           ['wellbeing', wellbeing]]
 locations_array = ["IJsbaanpad 9, 1076 CV Amsterdamn",
@@ -150,7 +150,7 @@ booking = Booking.new(
 )
 booking.save
 
-12.times do
+15.times do
   sample = experience_types_array.sample
   temp = Experience.new(
     max_participants: 6,
