@@ -67,12 +67,12 @@
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-
+<%# show if the current_user has booked this experience %>
 <% if @bookings.exists? %>
-  <h2>YOUR BOOKINGS</h2>
+  <h2>Chat with the other participants:</h2>
   <ul>
     <% @bookings.each do |booking| %>
-    <li><%= link_to booking.experience.title, booking  %></li>
+    <li><%= link_to booking.experience.title, @experience.bookings.where(:user == @experience.user)[0]  %></li>
   <% end %>
 </ul>
 <% end %>
