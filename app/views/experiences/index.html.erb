@@ -1,5 +1,14 @@
-
-<div class="homepage">
+<div class="home-container" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/bali3.jpeg')">
+  <div class="home-img">
+    <div class="overlay">
+      <h1 class="destination-title">Bali</h1>
+      <p class="location">Indonesia</p>
+    </div>
+  </div>
+  <div class="homepage">
+    <!-- Add more sections or content here -->
+  </div>
+</div>
 
 
   <%# <header class="header">
@@ -13,12 +22,12 @@
 
 
 
-<div class="container">
+<div class="body-container">
   <div class="row">
   <!-- Flexbox Container for Cards -->
 
 
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between pt-3">
 
           <%= link_to "/experiences?query=adventure-sport" do %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/adventure.jpeg')">
@@ -47,6 +56,7 @@
   <section class="content-section pt-4">
 
 <div class="content-grid">
+  <h2></h2>
 
   <% @experiences.each do |experience| %>
     <%= render 'experiences/experience', experience: experience %>
