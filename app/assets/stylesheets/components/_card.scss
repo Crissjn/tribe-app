@@ -1,6 +1,7 @@
 .card-category {
   background-size: cover;
   background-position: center;
+  margin-right: 18px;
   width: 75px;
   height: 75px;
   display: flex;
@@ -15,6 +16,9 @@
   border-radius: 50%;
 }
 
+.card-home {
+  border-radius: 50%;
+}
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;

@@ -1,11 +1,13 @@
-<div class="container rounded-2">
-<%= link_to experience_path(experience), class: 'exp-card' do %>
-    <div class="card">
-    <%= cl_image_tag experience.photos.first.key, alt: experience.title, class: 'small-image' %>
-        <div class="card-info">
-            <h4><%= experience.title %></h4>
-            <span class="author"><%= experience.date %></span>
-        </div>
-    </div>
-<% end %>
+<div class="container">
+  <div class="card-home">
+  <%= link_to experience_path(experience), class: 'exp-card' do %>
+      <div class="card">
+      <%= cl_image_tag experience.photos.first.key, alt: experience.title, class: 'small-image' %>
+          <div class="card-info">
+              <h4><%= experience.title %></h4>
+              <span class="author"><%= experience.date %></span>
+          </div>
+      </div>
+  <% end %>
+  </div>
 </div>

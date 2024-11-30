@@ -1,0 +1,16 @@
+
+<div class="card-container">
+  <div class="booking-card">
+    <%= link_to experience_path(experience), class: 'exp-card' do %>
+      <div class="card-content">
+        <%= cl_image_tag experience.photos.first.key, alt: experience.title, class: 'small-image' %>
+        <h4><%= experience.title %></h4>
+        <p><i class="fa-solid fa-location-dot"></i><%= experience.location %></p>
+        <p><%= experience.description %></p>
+        <p><strong>Participants:</strong> 5 / 8</p>
+        <strong><p><%= experience.price %></p></strong>
+        <span class="author"><%= experience.date %></span>
+      </div>
+    <% end %>
+  </div>
+</div>
