@@ -1,5 +1,21 @@
-<p><%= @current_user.username %></p>
-<ul>
-<li>You took part to <%= @current_user.bookings.count %> experiences.</li>
-<li>You own <%= @current_user.experiences.count %> experiences.</li>
-</ul>
+<div class="container">
+  <p> welcome to your profile <%= @current_user.username %></p>
+  <div data-controller="dashboard">
+
+      <div class="tab">
+        <button class="tablinks" data-dashboard-target="btnexp" data-action="click->dashboard#change_tab" data-dashboard-tab-param="exp">Your experiences</button>
+        <button class="tablinks" data-dashboard-target="btnbooking" data-action="click->dashboard#change_tab" data-dashboard-tab-param="bookings">Your bookings</button>
+      </div>
+
+      <!-- Tab content -->
+
+      <div id="your_exp" class="tabcontent" data-dashboard-target="exp">
+        <%= @current_user.experiences.count %> asdhasjdhasjdhasjdhasjdahdjha
+      </div>
+
+      <div id="your_bookings" class="tabcontent" data-dashboard-target="bookings">
+        <%= @current_user.bookings.count %> porco dios
+      </div>
+
+    </div>
+ </div>
