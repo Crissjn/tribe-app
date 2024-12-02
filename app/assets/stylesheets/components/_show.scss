@@ -1,0 +1,121 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f7fc;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+}
+
+.main-image {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.details {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: -40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 30px;
+  color: #333;
+  margin: 0;
+}
+
+.rating {
+  background-color: #ff9900;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 18px;
+}
+
+.location p {
+  font-size: 18px;
+  color: #777;
+}
+
+.tour-guide p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.description {
+  margin-top: 20px;
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.gallery-img {
+  width: 32%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.included {
+  margin-top: 20px;
+}
+
+.included-items {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.icon {
+  background-color: #f4f4f4;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 16px;
+}
+
+.booking {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.booking p {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+.book-now {
+  background-color: #007bff;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.book-now:hover {
+  background-color: #0056b3;
+}

@@ -1,7 +1,8 @@
 
   <nav class="navbar nav-footer">
-    <a href="/" class="nav-item <%= 'active' if current_page?("/") %>">🏠</a>
-     <a href="/experiences/new" class="nav-item <%= 'active' if current_page?("/experiences/new") %>"><i class="fa-solid fa-plus"></i></a>
-    <a href="/bookings/1/chat" class="nav-item <%= 'active' if current_page? == 'chat' %>">💬</a>
-     <a href="/users/edit" class="nav-item <%= 'active' if current_page? == 'profile' %>">👤</a>
+    <a href="/" class="nav-item <%= 'active' if current_page?("/") %>"><i class="fa-solid fa-house"></i><span>Home</span></a>
+    <a href="/search" class="nav-item <%= 'active' if current_page?("/search") %>"><i class="fa-solid fa-magnifying-glass"></i><span>Search</span></a>
+     <a href="/experiences/new" class="nav-item <%= 'active' if current_page?("/experiences/new") %>"><i class="fa-solid fa-plus"></i><span>New</span></a>
+    <a href="/bookings/1/chat" class="nav-item <%= 'active' if current_page? == 'chat' %>"><i class="fa-solid fa-message"></i><span>Messages</span></a>
+     <a href="/users/edit" class="nav-item <%= 'active' if current_page? == 'profile' %>"><i class="fa-solid fa-user"></i><span>Profile</span></a>
   </nav>
