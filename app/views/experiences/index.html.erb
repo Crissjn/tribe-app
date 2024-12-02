@@ -1,4 +1,4 @@
-<div class="home-container" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/bali3.jpeg')">
+<div class="home-container" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('bali3.jpeg') %>)">
   <div class="home-img">
     <%# <div class="searchbar"> %>
         <%# <%= render "shared/search_bar" %>
@@ -32,22 +32,22 @@
         <div class="d-flex justify-content-center pt-3">
 
               <%= link_to "/experiences?query=adventure-sport" do %>
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/adventure.jpeg')">
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('adventure.jpeg') %>)">
                 Adventure
               </div>
               <% end %>
               <%= link_to "/experiences?query=wellbeing" do %>
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/meditation.jpeg')">
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('meditation.jpeg') %>)">
                 Wellbeing
               </div>
               <% end %>
               <%= link_to "/experiences?query=culture" do %>
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/culture.jpeg')">
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('culture.jpeg') %>)">
                 Culture
               </div>
               <% end %>
               <%= link_to "/experiences?query=food-drinks" do %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/food.jpeg')">
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('food.jpeg') %>)">
                 Food
           </div>
           <% end %>
