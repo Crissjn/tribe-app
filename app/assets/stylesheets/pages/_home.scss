@@ -1,9 +1,17 @@
 body {
-  font-family: League Spartan, sans-serif;
+  font-family: 'Noto Serif SC', serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  height: 100vh;
+  background-size: cover;
+  background-size: cover;
+  color: #2d6a4f;
 }
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 
 /* Container for the entire section */
 .home-container {
@@ -185,4 +193,35 @@ body {
 
 .app-link:hover {
   text-decoration: underline;
+}
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../images/vietnam_rice_fields.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.container {
+  z-index: 1;
+}
+
+.col-md-4 {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-success {
+  background-color: #2d6a4f;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #40916c;
+  color: white;
 }
