@@ -1,10 +1,58 @@
+ <div class="app-container">
+    <div>
+      <%= image_tag "hike2.jpeg", alt: "Image 2", width: "100%", height: "175%" %>
+    </div>
 
-<div class="container">
+    <div class="details">
+      <div class="header pt-1">
+        <h1> <%= @experience.title %></h1>
+        <span class="rating">4.9</span>
+      </div>
+
+      <div class="location d-flex">
+        <div class="row">
+        <p><i class="fa-solid fa-location-dot"></i> <%= @experience.location %></p>
+      </div>
+      </div>
+
+      <div class="tour-guide">
+        <p><strong>Pak Joko</strong> - Tour Guide</p>
+      </div>
+
+      <div class="description">
+        <h4>Description</h4>
+        <p> <%= @experience.description %></p>
+      </div>
+
+      <div class="gallery">
+        <%= image_tag "hike2.jpeg", alt: "Image 1", class: "gallery-img" %>
+        <%= image_tag "hike.jpeg", alt: "Image 2", class: "gallery-img" %>
+        <%= image_tag "hike-2.jpeg", alt: "Image 3", class: "gallery-img" %>
+      </div>
+      <div class="included">
+        <p><strong>What's included':</strong></p>
+        <div class="included-items">
+          <span class="icon">Transport</span>
+          <span class="icon">Shoes</span>
+          <span class="icon">Food</span>
+          <span class="icon">Guide</span>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between booking align-items-center">
+        <p><strong>$</strong> <%= @experience.price.to_i %> / Person</p>
+        <%= link_to "Book Now", experience_bookings_path(@experience), data: { turbo_method: "post" }, class: "book-now button" %>
+      </div>
+    </div>
+
+  <h4>Location</h4>
+  <%= link_to "Open in Maps >" %>
   <div style="width: 100%; height: 300px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+</div>
+
 
  <div class="d-flex justify-content-start card-container">
  <%# carousel %>
@@ -35,6 +83,7 @@
    <h2> <%= @experience.title %> </h2>
    <h5> <%= @experience.location %> </h5>
    <h5> <%= @experience.description %> </h5>
+
 
 </div>
 
@@ -103,3 +152,14 @@
 <% else %>
   <%= link_to "Book this experience" , experience_bookings_path(@experience) , data: {turbo_method: "post"} %>
 <% end %>
+
+<%# show if the current_user has booked this experience %>
+<% if @bookings.exists? %>
+  <h2>Chat with the other participants:</h2>
+  <ul>
+    <% @bookings.each do |booking| %>
+    <li><%= link_to booking.experience.title, @experience.bookings.where(:user == @experience.user)[0]  %></li>
+  <% end %>
+</ul>
+<% end %>
+

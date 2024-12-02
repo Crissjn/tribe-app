@@ -35,6 +35,10 @@ gem 'faker'
 # Gemfile
 gem "geocoder"
 
+# solid_cable
+gem "solid_cable"
+
+gem "actioncable-enhanced-postgresql-adapter"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
