@@ -2,14 +2,14 @@
 // <weight>: Use a value from 100 to 900
 
 .league-spartan-h1 {
-  font-family: "League Spartan", sans-serif;
+  font-family: $body-font;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
 }
 
 .league-spartan-body {
-  font-family: "League Spartan", sans-serif;
+  font-family: $body-font;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
