@@ -1,0 +1,24 @@
+<div class="card-container">
+  <div class="booking-card">
+    <div class="card-content">
+      <%= link_to experience_path(experience), class: 'exp-card-image-link' do %>
+        <%= cl_image_tag experience.photos.first.key, alt: experience.title, class: 'card-image' %>
+      <% end %>
+      <div class="card-details">
+        <h4 class="card-title"><%= experience.title %></h4>
+        <p class="card-location">
+          <i class="fa-solid fa-location-dot"></i> <%= experience.location %>
+        </p>
+        <p class="card-date">
+          <i class="fa-regular fa-calendar"></i>
+          <%= experience.date.strftime("%b %d, %Y") %> - <%= (experience.date + 3.days).strftime("%b %d, %Y") %> (Flexible)
+        </p>
+        <p class="card-description"><%= truncate(experience.description, length: 100) %></p>
+      </div>
+      <div class="card-actions">
+        <%= button_to 'Join', experience_path(experience), class: 'btn-join' %>
+        <%= link_to 'Details', experience_path(experience), class: 'btn-details' %>
+      </div>
+    </div>
+  </div>
+</div>

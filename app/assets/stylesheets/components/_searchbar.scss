@@ -1,3 +1,32 @@
+
 .searchbar {
- border-radius: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: 25px; /* 50% rounded corners */
+  background-color: #f5f5f5; /* Optional background color */
+  padding: 5px 15px; /* Padding for better spacing */
+  position: absolute;
+  top: 20px; /* Position the text towards the bottom */
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  border-radius: 50px; /* Add shadow for better contrast */
+  }
+
+
+.searchbar input {
+  border: none;
+  padding: 10px;
+  border-radius: 25px; /* 50% rounded corners */
+  outline: none;
+  width: 300px; /* Adjust width as necessary */
+}
+
+.searchbar button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 10px;
+  margin-left: 5px;
+  border-radius: 50%;
 }
