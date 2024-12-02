@@ -75,7 +75,7 @@ puts "made Criss"
 experience_types_array = [['adventure-sport', adventure],
                           ['food-drinks', food],
                           # ['eco', eco],
-                          ['culture', culture],
+                          ['culture', food],
                           ['wellbeing', wellbeing]]
 locations_array = ["IJsbaanpad 9, 1076 CV Amsterdamn",
                    "Den Haag",
@@ -118,7 +118,7 @@ past_exp2 = Experience.new(
   price: 0,
   date:  Faker::Time.between_dates(from: Date.today - 8, to: Date.today - 4 , period: :all)
 )
-past_exp2.photos.attach(io: adventure, filename: "profile.png", content_type: "image/png")
+past_exp2.photos.attach(io: adventure, filename: "profile.jpg", content_type: "image/jpg")
 past_exp2.save(validate: false)
 booking = Booking.new(
   user_id: kelvin.id,
@@ -139,7 +139,7 @@ past_exp3 = Experience.new(
   price: 0,
   date:  Faker::Time.between_dates(from: Date.today - 4, to: Date.today - 2, period: :all)
 )
-past_exp3.photos.attach(io: adventure2, filename: "profile.png", content_type: "image/png")
+past_exp3.photos.attach(io: adventure2, filename: "profile.jpg", content_type: "image/jpg")
 past_exp3.save(validate: false)
 booking = Booking.new(
   user_id: criss.id,
@@ -161,7 +161,7 @@ exp1 = Experience.new(
   price: 0,
   date:  Faker::Time.between_dates(from: Date.today + 2, to: Date.today + 5, period: :all)
 )
-exp1.photos.attach(io: adventure3, filename: "profile.png", content_type: "image/png")
+exp1.photos.attach(io: adventure3, filename: "profile.jpg", content_type: "image/jpg")
 exp1.save
 booking = Booking.new(
   user_id: criss.id,
@@ -184,7 +184,7 @@ exp2 = Experience.new(
   date:  Faker::Time.between_dates(from: Date.today + 2, to: Date.today + 6, period: :all)
 
 )
-exp2.photos.attach(io: food, filename: "profile.png", content_type: "image/png")
+exp2.photos.attach(io: food, filename: "profile.jpg", content_type: "image/jpg")
 exp2.save
 booking = Booking.new(
   user_id: kelvin.id,
@@ -208,7 +208,7 @@ puts " creating now 15 random experiences"
     price: rand(1..20),
     date:  Faker::Time.between_dates(from: Date.today + 2, to: Date.today + 6, period: :all)
   )
-  temp.photos.attach(io: sample[1], filename: "profile.png", content_type: "image/png")
+  temp.photos.attach(io: sample[1], filename: "profile.jpg", content_type: "image/jpg")
   temp.save
   # selfbooking the creator to the experience
   booking = Booking.new(
