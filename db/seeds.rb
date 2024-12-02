@@ -18,8 +18,8 @@ culture = URI.parse("https://collegelife.co/wp-content/uploads/2022/08/153-1-1.p
 eco = URI.parse("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJl0ThTOtheLgZYsi7APfH74COhZEXVT8b9A&s").open
 food = URI.parse("https://online.jwu.edu/wp-content/uploads/2023/06/Bev20Pairing20-20tiny.jpg").open
 adventure = URI.parse("https://cdn.outsideonline.com/wp-content/uploads/2023/04/guided-hike_h-1024x576.jpg?width=1200").open
-adventure2 = URI.parse("https://cdn.outsideonline.com/wp-content/uploads/2023/04/guided-hike_h-1024x576.jpg?width=1200").open
-adventure3 = URI.parse("https://cdn.outsideonline.com/wp-content/uploads/2023/04/guided-hike_h-1024x576.jpg?width=1200").open
+adventure2 = URI.parse("https://www.shape.com/thmb/oAnU3qGLLeS9CDt7gceJRTo0-po=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/endurance-4d8dfc8fd70741f5a8ee810d816f52d0.jpg").open
+adventure3 = URI.parse("https://www.cheshiremed.org/sites/default/files/2022-08/hiking_one_leg.jpg").open
 
 wellbeing_blob = ActiveStorage::Blob.create_and_upload!(
   io: wellbeing,
@@ -134,8 +134,10 @@ past_exp2 = Experience.new(
   price: 0,
   date:  Faker::Time.between_dates(from: Date.today - 8, to: Date.today - 4 , period: :all)
 )
+
 past_exp2.photos.attach(adventure_blob)
 past_exp2.save(validate: false)
+
 booking = Booking.new(
   user_id: kelvin.id,
   experience_id: past_exp2.id
@@ -169,8 +171,8 @@ exp1 = Experience.new(
   max_participants: 5,
   min_participants: 3,
   user_id: criss.id,
-  location: locations_array.sample,
-  title: " A nice hike from centraal",
+  location: "Madonna di campiglio",
+  title: " A nice hike in the Dolomites",
   description: "Open activity Let's walk together somewhere ",
 
   exp_type: "adventure-sport",
