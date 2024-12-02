@@ -93,11 +93,11 @@ experience_types_array = [['adventure-sport', adventure_blob],
                           # ['eco', eco],
                           ['culture', food_blob],
                           ['wellbeing', wellbeing_blob]]
-locations_array = ["IJsbaanpad 9, 1076 CV Amsterdamn",
-                   "Den Haag",
+locations_array = ["IJsbaanpad 9, 1076 CV Amsterdamn, Netherlands",
+                   "Den Haag, Netherlands",
                    "Amsterdam Amstelstation",
                    "Amsterdam Bijlmer Arena",
-                   "Volendam, Netherlands", "Denpasar, Bali"]
+                   "Volendam, Netherlands", "Denpasar, Bali, Indonesia"]
 
 puts "Users created"
 puts "Creating experiences and self booking the creator"
