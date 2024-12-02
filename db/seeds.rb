@@ -22,6 +22,7 @@ adventure2 = URI.parse("https://cdn.outsideonline.com/wp-content/uploads/2023/04
 adventure3 = URI.parse("https://cdn.outsideonline.com/wp-content/uploads/2023/04/guided-hike_h-1024x576.jpg?width=1200").open
 
 puts "Cleaning table..."
+Message.destroy_all
 Booking.destroy_all
 Experience.destroy_all
 User.destroy_all
@@ -104,6 +105,8 @@ booking = Booking.new(
 )
 booking.save
 
+puts "past experience 1 created"
+
 past_exp2 = Experience.new(
   max_participants: 5,
   min_participants: 3,
@@ -123,6 +126,8 @@ booking = Booking.new(
 )
 booking.save
 
+puts "past experience 2 created"
+
 past_exp3 = Experience.new(
   max_participants: 5,
   min_participants: 3,
@@ -134,13 +139,15 @@ past_exp3 = Experience.new(
   price: 0,
   date:  Faker::Time.between_dates(from: Date.today - 4, to: Date.today - 2, period: :all)
 )
-past_exp3.photos.attach(io: adventure2, filename: "profile.png", content_type: "image/pgn")
+past_exp3.photos.attach(io: adventure2, filename: "profile.png", content_type: "image/png")
 past_exp3.save(validate: false)
 booking = Booking.new(
   user_id: criss.id,
   experience_id: past_exp3.id
 )
 booking.save
+
+puts "past experience 3 created"
 
 exp1 = Experience.new(
   max_participants: 5,
@@ -154,13 +161,16 @@ exp1 = Experience.new(
   price: 0,
   date:  Faker::Time.between_dates(from: Date.today + 2, to: Date.today + 5, period: :all)
 )
-exp1.photos.attach(io: adventure3, filename: "profile.png", content_type: "image/pgn")
+exp1.photos.attach(io: adventure3, filename: "profile.png", content_type: "image/png")
 exp1.save
 booking = Booking.new(
   user_id: criss.id,
   experience_id: exp1.id
 )
 booking.save
+
+puts " experience 1 created"
+
 
 exp2 = Experience.new(
   max_participants: 5,
@@ -182,6 +192,9 @@ booking = Booking.new(
 )
 booking.save
 
+puts " experience 1 created"
+
+puts " creating now 15 random experiences"
 15.times do
   sample = experience_types_array.sample
   temp = Experience.new(
