@@ -80,12 +80,31 @@ locations_array = ["IJsbaanpad 9, 1076 CV Amsterdamn",
                    "Den Haag",
                    "Amsterdam Amstelstation",
                    "Amsterdam Bijlmer Arena",
-                   "Volendam, Netherlands"]
+                   "Volendam, Netherlands", "Denpasar, Bali"]
 
 puts "Users created"
 puts "Creating experiences and self booking the creator"
 
-past_exp = Experience.new(
+past_exp1 = Experience.new(
+  max_participants: 6,
+  min_participants: 3,
+  user_id: kelvin.id,
+  location: locations_array[5],
+  title: "Mount Batur Hike",
+  description: "Mount Batur is one of the most popular hikes near Ubud. Located an hour north of the city. 4-hour hike with stunning views and two calderas. ",
+  exp_type: "adventure-sport",
+  price: 45,
+  date: Date.today
+)
+past_exp1.photos.attach(io: adventure, filename: "mount-batur.jpg", content_type: "image/jpg")
+past_exp1.save(validate: false)
+booking = Booking.new(
+  user_id: kelvin.id,
+  experience_id: past_exp1.id
+)
+booking.save
+
+past_exp2 = Experience.new(
   max_participants: 5,
   min_participants: 3,
   user_id: kelvin.id,
@@ -96,15 +115,15 @@ past_exp = Experience.new(
   price: 0,
   date:  Faker::Time.between_dates(from: Date.today - 8, to: Date.today - 4 , period: :all)
 )
-past_exp.photos.attach(io: adventure, filename: "profile.png", content_type: "image/pgn")
-past_exp.save(validate: false)
+past_exp2.photos.attach(io: adventure, filename: "profile.png", content_type: "image/pgn")
+past_exp2.save(validate: false)
 booking = Booking.new(
   user_id: kelvin.id,
-  experience_id: past_exp.id
+  experience_id: past_exp2.id
 )
 booking.save
 
-past_exp2 = Experience.new(
+past_exp3 = Experience.new(
   max_participants: 5,
   min_participants: 3,
   user_id: criss.id,
@@ -115,11 +134,11 @@ past_exp2 = Experience.new(
   price: 0,
   date:  Faker::Time.between_dates(from: Date.today - 4, to: Date.today - 2, period: :all)
 )
-past_exp2.photos.attach(io: adventure2, filename: "profile.png", content_type: "image/pgn")
-past_exp2.save(validate: false)
+past_exp3.photos.attach(io: adventure2, filename: "profile.png", content_type: "image/pgn")
+past_exp3.save(validate: false)
 booking = Booking.new(
   user_id: criss.id,
-  experience_id: past_exp2.id
+  experience_id: past_exp3.id
 )
 booking.save
 

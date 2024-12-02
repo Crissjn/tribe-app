@@ -1,56 +1,78 @@
-
-<div class="homepage">
-
-
-  <%# <header class="header">
-    <button class="notification-icon">🔔</button>
-  </header> %>
-
-  <%# <div class="search-bar">
-    <input type="text" placeholder="Have some topics to cover?" />
-    <button class="search-button">🔍</button>
-  </div> %>
-
-
-
-<div class="container">
-  <div class="row">
-  <!-- Flexbox Container for Cards -->
-
-
-    <div class="d-flex justify-content-between">
-
-          <%= link_to "/experiences?query=adventure-sport" do %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/adventure.jpeg')">
-            Adventure
-          </div>
-          <% end %>
-           <%= link_to "/experiences?query=wellbeing" do %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/meditation.jpeg')">
-            Wellbeing
-          </div>
-          <% end %>
-           <%= link_to "/experiences?query=culture" do %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/culture.jpeg')">
-            Culture
-          </div>
-           <% end %>
-           <%= link_to "/experiences?query=food-drinks" do %>
-         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/food.jpeg')">
-            Food
-      </div>
-       <% end %>
+<div class="home-container" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/bali3.jpeg')">
+  <div class="home-img">
+    <%# <div class="searchbar"> %>
+        <%# <%= render "shared/search_bar" %>
+    <%# </div> %>
+    <div class="overlay">
+      <h1 class="destination-title">Bali</h1>
+      <p class="location">🇮🇩 Indonesia</p>
     </div>
   </div>
+  <div class="homepage">
+    <!-- Add more sections or content here -->
   </div>
+</div>
 
-  <section class="content-section pt-4">
+<%# <header class="header">
+  <button class="notification-icon">🔔</button>
+</header>
 
-<div class="content-grid">
+<div class="search-bar">
+  <input type="text" placeholder="Have some topics to cover?" />
+  <button class="search-button">🔍</button>
+</div> %>
+
+<div class="container content-section pt-4">
+    <h1>Explore</h1>
+
+    <div class="body-container">
+      <div class="row">
+      <!-- Flexbox Container for Cards -->
+
+        <div class="d-flex justify-content-center pt-3">
+
+              <%= link_to "/experiences?query=adventure-sport" do %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/adventure.jpeg')">
+                Adventure
+              </div>
+              <% end %>
+              <%= link_to "/experiences?query=wellbeing" do %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/meditation.jpeg')">
+                Wellbeing
+              </div>
+              <% end %>
+              <%= link_to "/experiences?query=culture" do %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/culture.jpeg')">
+                Culture
+              </div>
+              <% end %>
+              <%= link_to "/experiences?query=food-drinks" do %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/food.jpeg')">
+                Food
+          </div>
+          <% end %>
+        </div>
+      </div>
+      </div>
+
+
+      <section class="content-section pt-4">
+      <h3 class="container">Popular near you..</h3>
+  </div>
+   </div>
+
+<%# <div class="content-grid"> %>
 
   <% @experiences.each do |experience| %>
-    <%= render 'experiences/experience', experience: experience %>
+    <%= render 'shared/card-home', experience: experience %>
   <% end %>
 
   </section>
+</div>
+
+  <%# <% @experiences.each do |experience| %>
+    <%# <%= render 'experience/experience-home', experience: experience %>
+  <%# <% end %>
+  </section>
+
 </div>
