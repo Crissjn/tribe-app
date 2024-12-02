@@ -21,6 +21,22 @@ adventure = URI.parse("https://cdn.outsideonline.com/wp-content/uploads/2023/04/
 adventure2 = URI.parse("https://cdn.outsideonline.com/wp-content/uploads/2023/04/guided-hike_h-1024x576.jpg?width=1200").open
 adventure3 = URI.parse("https://cdn.outsideonline.com/wp-content/uploads/2023/04/guided-hike_h-1024x576.jpg?width=1200").open
 
+wellbeing_blob = ActiveStorage::Blob.create_and_upload!(
+  io: wellbeing,
+  filename: File.basename("https://upload.wikimedia.org/wikipedia/commons/e/e3/Flamingo_Spa_%26_Wellness.jpg"),
+  content_type: wellbeing.content_type
+)
+food_blob = ActiveStorage::Blob.create_and_upload!(
+  io: food,
+  filename: File.basename("https://online.jwu.edu/wp-content/uploads/2023/06/Bev20Pairing20-20tiny.jpg"),
+  content_type: food.content_type
+)
+adventure_blob = ActiveStorage::Blob.create_and_upload!(
+  io: adventure,
+  filename: File.basename("https://cdn.outsideonline.com/wp-content/uploads/2023/04/guided-hike_h-1024x576.jpg?width=1200"),
+  content_type: adventure.content_type
+)
+
 puts "Cleaning table..."
 Message.destroy_all
 Booking.destroy_all
@@ -72,11 +88,11 @@ criss.save
 
 puts "made Criss"
 
-experience_types_array = [['adventure-sport', adventure],
-                          ['food-drinks', food],
+experience_types_array = [['adventure-sport', adventure_blob],
+                          ['food-drinks', food_blob],
                           # ['eco', eco],
-                          ['culture', food],
-                          ['wellbeing', wellbeing]]
+                          ['culture', food_blob],
+                          ['wellbeing', wellbeing_blob]]
 locations_array = ["IJsbaanpad 9, 1076 CV Amsterdamn",
                    "Den Haag",
                    "Amsterdam Amstelstation",
@@ -97,7 +113,7 @@ past_exp1 = Experience.new(
   price: 45,
   date: Date.today
 )
-past_exp1.photos.attach(io: adventure, filename: "mount-batur.jpg", content_type: "image/jpg")
+past_exp1.photos.attach(adventure_blob)
 past_exp1.save(validate: false)
 booking = Booking.new(
   user_id: kelvin.id,
@@ -118,7 +134,7 @@ past_exp2 = Experience.new(
   price: 0,
   date:  Faker::Time.between_dates(from: Date.today - 8, to: Date.today - 4 , period: :all)
 )
-past_exp2.photos.attach(io: adventure, filename: "profile.jpg", content_type: "image/jpg")
+past_exp2.photos.attach(adventure_blob)
 past_exp2.save(validate: false)
 booking = Booking.new(
   user_id: kelvin.id,
@@ -139,7 +155,7 @@ past_exp3 = Experience.new(
   price: 0,
   date:  Faker::Time.between_dates(from: Date.today - 4, to: Date.today - 2, period: :all)
 )
-past_exp3.photos.attach(io: adventure2, filename: "profile.jpg", content_type: "image/jpg")
+past_exp3.photos.attach(adventure_blob)
 past_exp3.save(validate: false)
 booking = Booking.new(
   user_id: criss.id,
@@ -161,7 +177,7 @@ exp1 = Experience.new(
   price: 0,
   date:  Faker::Time.between_dates(from: Date.today + 2, to: Date.today + 5, period: :all)
 )
-exp1.photos.attach(io: adventure3, filename: "profile.jpg", content_type: "image/jpg")
+exp1.photos.attach(adventure_blob)
 exp1.save
 booking = Booking.new(
   user_id: criss.id,
@@ -170,7 +186,6 @@ booking = Booking.new(
 booking.save
 
 puts " experience 1 created"
-
 
 exp2 = Experience.new(
   max_participants: 5,
@@ -182,9 +197,8 @@ exp2 = Experience.new(
   exp_type: "food-drinks",
   price: 10,
   date:  Faker::Time.between_dates(from: Date.today + 2, to: Date.today + 6, period: :all)
-
 )
-exp2.photos.attach(io: food, filename: "profile.jpg", content_type: "image/jpg")
+exp2.photos.attach(food_blob)
 exp2.save
 booking = Booking.new(
   user_id: kelvin.id,
@@ -208,7 +222,7 @@ puts " creating now 15 random experiences"
     price: rand(1..20),
     date:  Faker::Time.between_dates(from: Date.today + 2, to: Date.today + 6, period: :all)
   )
-  temp.photos.attach(io: sample[1], filename: "profile.jpg", content_type: "image/jpg")
+  temp.photos.attach(food_blob)
   temp.save
   # selfbooking the creator to the experience
   booking = Booking.new(
