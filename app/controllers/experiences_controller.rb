@@ -3,13 +3,22 @@ class ExperiencesController < ApplicationController
 
   def index
     @experiences = Experience.all
-    # filter out the experiences that are full or owned but the user
+    @experiences = clean_experiences(@experiences)
+    # filter out the experiences that are full/finished or owned but the user
     if params[:query].present?
-      # @experiences = @experiences.where("title ILIKE ?", "%#{params[:query]}%")
+      if ["wellbeing", "culture", "adventure-sport", "food-drinks"].include? params[:query]
         @experiences = @experiences.where(exp_type: params[:query])
+      else
+        sql_subquery = <<~SQL
+          experiences.title @@ :query
+          OR experiences.description @@ :query
+          OR experiences.exp_type @@ :query
+          OR experiences.location @@ :query
+        SQL
+        @experiences = @experiences.where(sql_subquery, query: params[:query])
+      end
     end
   end
-  # /experiences?query=culture
 
   def show
     @experience = Experience.find(params[:id])
@@ -67,6 +76,12 @@ class ExperiencesController < ApplicationController
   end
 
   private
+
+  def clean_experiences(experiences)
+    experiences = experiences.where.not(user: current_user)
+    experiences = experiences.reject{ |exp| exp.finished? }
+    experiences.reject{ |exp| exp.full? }
+  end
 
   def set_user
     @user = current_user
