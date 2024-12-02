@@ -5,9 +5,11 @@ class ExperiencesController < ApplicationController
     @experiences = Experience.all
     # filter out the experiences that are full or owned but the user
     if params[:query].present?
-      @experiences = @experiences.where("title ILIKE ?", "%#{params[:query]}%")
+      # @experiences = @experiences.where("title ILIKE ?", "%#{params[:query]}%")
+        @experiences = @experiences.where(exp_type: params[:query])
     end
   end
+  # /experiences?query=culture
 
   def show
     @experience = Experience.find(params[:id])
