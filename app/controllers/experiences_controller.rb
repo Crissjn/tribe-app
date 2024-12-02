@@ -21,6 +21,7 @@ class ExperiencesController < ApplicationController
       marker_html: render_to_string(partial: "marker", locals: {experience: @experience})
       }]
       @booking = Booking.new
+      # trying to implement chat
       @bookings = @experience.bookings.where(user: current_user)
   end
 

@@ -120,3 +120,14 @@
 <% else %>
   <%= link_to "Book this experience" , experience_bookings_path(@experience) , data: {turbo_method: "post"} %>
 <% end %>
+
+<%# show if the current_user has booked this experience %>
+<% if @bookings.exists? %>
+  <h2>Chat with the other participants:</h2>
+  <ul>
+    <% @bookings.each do |booking| %>
+    <li><%= link_to booking.experience.title, @experience.bookings.where(:user == @experience.user)[0]  %></li>
+  <% end %>
+</ul>
+<% end %>
+
