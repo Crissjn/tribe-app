@@ -22,6 +22,7 @@ adventure2 = URI.parse("https://cdn.outsideonline.com/wp-content/uploads/2023/04
 adventure3 = URI.parse("https://cdn.outsideonline.com/wp-content/uploads/2023/04/guided-hike_h-1024x576.jpg?width=1200").open
 
 puts "Cleaning table..."
+Message.destroy_all
 Booking.destroy_all
 Experience.destroy_all
 User.destroy_all
