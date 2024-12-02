@@ -18,6 +18,19 @@
 .navbar {
   background-color: transparent
 }
+.footer-nav .nav-item {
+  text-decoration: none;
+  color: #888;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease, border-top 0.3s ease;
+}
+
+.footer-nav .nav-item.active {
+  color: #1e90ff;
+  font-weight: bold;
+  border-top: 3px solid #1e90ff;
+}
+
 .nav-footer {
   position: sticky;
   bottom: 0;
