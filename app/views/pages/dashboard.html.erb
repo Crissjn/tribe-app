@@ -2,7 +2,7 @@
   <div style="text-align : center"><h1><%= @current_user.username %></h1></div>
   <div data-controller="dashboard">
 
-      <div class="tab">
+      <div class="tab menu-tab">
         <button class="tablinks nav-item" data-dashboard-target="btnbooking" data-action="click->dashboard#change_tab" data-dashboard-tab-param="bookings">Bookings</button>
         <button class="tablinks nav-item" data-dashboard-target="btnexp" data-action="click->dashboard#change_tab" data-dashboard-tab-param="exp">Owned</button>
         <button class="tablinks nav-item" data-dashboard-target="btnpast" data-action="click->dashboard#change_tab" data-dashboard-tab-param="past">Past Experiences</button>
