@@ -30,12 +30,12 @@ class ExperiencesController < ApplicationController
       info_window_html: render_to_string(partial: "info_window", locals: {experience: @experience}),
       marker_html: render_to_string(partial: "marker", locals: {experience: @experience})
       }]
-      @booking = Booking.new
       # trying to implement chat
       @bookings = @experience.bookings.where(user: current_user)
 
-      @booking = @experience.bookings.where(user: current_user).first
+      @booking = @experience.bookings.first
       @message = Message.new
+
   end
 
   def new
