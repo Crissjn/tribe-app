@@ -1,4 +1,4 @@
-<div class="home-container" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('bali3.jpeg') %>)">
+<div class="home-container home-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('bali3.jpeg') %>)">
   <div class="home-img">
     <%# <div class="searchbar"> %>
         <%# <%= render "shared/search_bar" %>
@@ -25,14 +25,12 @@
 <%= render "shared/search_bar" %>
 
 <div class="container content-section pt-4">
-    <h1>Explore</h1>
+    <h1 style=" text-align:center">Explore</h1>
 
     <div class="body-container">
       <div class="row">
       <!-- Flexbox Container for Cards -->
-
         <div class="d-flex justify-content-center pt-3">
-
               <%= link_to "/experiences?query=adventure-sport" do %>
               <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('adventure.jpeg') %>)">
                 Adventure
@@ -49,25 +47,25 @@
               </div>
               <% end %>
               <%= link_to "/experiences?query=food-drinks" do %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('food.jpeg') %>)">
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('food.jpeg') %>)">
                 Food
-          </div>
+             </div>
           <% end %>
         </div>
       </div>
-      </div>
+    </div>
 
 
-      <section class="content-section pt-4">
-      <h3 class="container">Popular near you..</h3>
-  </div>
-   </div>
-
-<%# <div class="content-grid"> %>
-
-  <% @experiences.each do |experience| %>
-    <%= render 'shared/card-home', experience: experience %>
-  <% end %>
+      <section class="content-section pt-4" style=" text-align:center">
+        <h3>Popular near you..</h3>
+        <% if @experiences.count == 0 %>
+        <h3>Sorry no results for your search 😥</h3>
+        <% end %>
+        <% @experiences.each do |experience| %>
+          <% unless experience.full? %>
+            <%= render 'shared/card-home', experience: experience %>
+          <% end %>
+        <% end %>
 
   </section>
 </div>
@@ -75,6 +73,3 @@
   <%# <% @experiences.each do |experience| %>
     <%# <%= render 'experience/experience-home', experience: experience %>
   <%# <% end %>
-  </section>
-
-</div>

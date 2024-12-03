@@ -1,5 +1,5 @@
 body {
-  font-family: 'Noto Serif SC', serif;
+  font-family: "Noto Serif SC", serif;
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -104,7 +104,7 @@ body {
   border-radius: 25px;
   padding: 20px;
   margin-top: -40px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1)
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .header {
@@ -136,7 +136,6 @@ body {
 .booking-card {
   // display: flex;
   transition: transform 0.2s ease;
-
   width: 90%;
   background-color: #fff;
   border-radius: 16px;
@@ -169,7 +168,7 @@ body {
 }
 
 .rating {
-  color: #FFD700;
+  color: #ffd700;
   margin: 5px 0;
 }
 
@@ -201,7 +200,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url('../images/vietnam_rice_fields.jpg');
+  background-image: url("../images/vietnam_rice_fields.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
