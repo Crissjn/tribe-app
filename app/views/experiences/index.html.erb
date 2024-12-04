@@ -1,117 +1,84 @@
-<div class="home-container home-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('bali3.jpeg') %>)">
-  <div class="home-img">
-
-<section class="hero">
+<div class="home-container">
+  <div class="video-container">
     <video autoplay loop muted playsinline class="hero-video">
       <source src="<%= asset_path('NMzpIWvu-27113676.mp4') %>" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-<%# </div> %>
-
-    <%# <div class="overlay-search" data-search-target="searchBar">
-    <%= render "shared/search_bar" %>
-    <%# <div class="overlay"> %>
-      <%# <h1 class="destination-title">Bali</h1>
-      <p class="location">🇮🇩 Indonesia</p> %>
-    </div>
   </div>
-  <div class="homepage">
-    <!-- Add more sections or content here -->
-  </div>
-</div>
 
-<%# <header class="header">
-  <button class="notification-icon">🔔</button>
-</header>
+  <div class="body-container container pt-3">
+    <h1 class='explore-heading'>Explore</h1>
+    <div class="body-container">
+      <div data-controller="card-carousel" class="carousel-container">
+        <!-- Carousel for Cards -->
+        <div class="carousel-track d-flex pt-3" data-carousel-target="track">
+          <%= link_to "/experiences?query=adventure-sport" do %>
+            <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('adventure.jpeg') %>)">
+              Adventure
+            </div>
+          <% end %>
 
-<div class="search-bar">
-  <input type="text" placeholder="Have some topics to cover?" />
-  <button class="search-button">🔍</button>
-</div> %>
-<%# rendering the searchbar in the partials  %>
+          <%= link_to "/experiences?query=wellbeing" do %>
+            <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('meditation.jpeg') %>)">
+              Wellbeing
+            </div>
+          <% end %>
 
-<div class="body-container container pt-3">
+          <%= link_to "/experiences?query=culture" do %>
+            <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('culture.jpeg') %>)">
+              Culture
+            </div>
+          <% end %>
 
-  <h1 class='explore-heading'>Explore</h1>
+          <%= link_to "/experiences?query=food-drink" do %>
+            <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('food.jpeg') %>)">
+              Food
+            </div>
+          <% end %>
 
-  <div class="body-container">
-    <div data-controller="card-carousel" class="carousel-container">
-      <!-- Carousel for Cards -->
-      <div class="carousel-track d-flex pt-3" data-carousel-target="track">
+          <%= link_to "/experiences?query=nature" do %>
+            <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('food.jpeg') %>)">
+              Nature
+            </div>
+          <% end %>
 
-        <%= link_to "/experiences?query=adventure-sport" do %>
-          <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('adventure.jpeg') %>)">
-            Adventure
-          </div>
-        <% end %>
+          <%= link_to "/experiences?query=volunteer" do %>
+            <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('food.jpeg') %>)">
+              Volunteer
+            </div>
+          <% end %>
 
-        <%= link_to "/experiences?query=wellbeing" do %>
-          <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('meditation.jpeg') %>)">
-            Wellbeing
-          </div>
-        <% end %>
+          <%= link_to "/experiences?query=sport" do %>
+            <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('food.jpeg') %>)">
+              Sport
+            </div>
+          <% end %>
 
-        <%= link_to "/experiences?query=culture" do %>
-          <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('culture.jpeg') %>)">
-            Culture
-          </div>
-        <% end %>
-
-        <%= link_to "/experiences?query=food-drink" do %>
-          <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('food.jpeg') %>)">
-            Food
-          </div>
-        <% end %>
-
-        <%= link_to "/experiences?query=nature" do %>
-          <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('food.jpeg') %>)">
-            Nature
-          </div>
-        <% end %>
-
-        <%= link_to "/experiences?query=volunteer" do %>
-          <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('food.jpeg') %>)">
-            Volunteer
-          </div>
-        <% end %>
-
-        <%= link_to "/experiences?query=sport" do %>
-          <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('food.jpeg') %>)">
-            Sport
-          </div>
-        <% end %>
-
-        <%= link_to "/experiences?query=nightlife" do %>
-          <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('food.jpeg') %>)">
-            Nightlife
-          </div>
-
-        <% end %>
-
-      </div>
+          <%= link_to "/experiences?query=nightlife" do %>
+            <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('food.jpeg') %>)">
+              Nightlife
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
+
+  <h3 class="container pt-2">Recommendations for you..</h3>
+
+  <%# visible cards %>
+  <% @experiences.first(5).each do |experience| %>
+    <%= render 'shared/card-home', experience: experience %>
+  <% end %>
+
+  <div class="card-actions-1">
+    <%= link_to 'Explore more', '#', class: 'btn-see-more' %>
+  </div>
+
+  <%# cards to be rendered %>
+  <div class='d-none'>
+    <% @experiences[5..].each do |experience| %>
+      <%= render 'shared/card-home', experience: experience %>
+    <% end %>
+  </div>
 </div>
-
-
-      <h3 class="container pt-2">Recommendations for you..</h3>
-
-
-      <%# visible cards %>
-      <% @experiences.first(5).each do |experience| %>
-        <%= render 'shared/card-home', experience: experience %>
-      <% end %>
-
-    <div class="card-actions-1">
-      <%= link_to 'Explore more', '#', class: 'btn-see-more' %>
-    </div>
-
-    <%# cards to be rendered %>
-    <div class='d-none'>
-      <% @experiences[5..].each do |experience| %>
-        <%= render 'shared/card-home', experience: experience %>
-      <% end %>
-    </div>
-</div>
-
