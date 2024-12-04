@@ -1,5 +1,5 @@
 body {
-  font-family: "Noto Serif SC", serif;
+  font-family: $body-font;
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -25,12 +25,18 @@ body {
   background-size: cover;
   background-position: top center;
   background-color: #f4f4f4;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  // border-bottom-left-radius: 20px;
+  // border-bottom-right-radius: 20px;
+}
+
+.explore-heading {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .d-flex {
   border-radius: 50%;
+  width: 90%;
 }
 
 /** Background image section **/
@@ -38,9 +44,9 @@ body {
   position: relative;
   background-size: cover;
   background-position: center;
-  height: 470px; /* Set the height of the image */
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  height: auto; /* Set the height of the image */
+  // border-bottom-left-radius: 20px;
+  // border-bottom-right-radius: 20px;
 }
 
 .body-container {
@@ -51,6 +57,8 @@ body {
   background-position: center;
   position: relative; /* Ensures it sits above the image */
   z-index: 1; /* Ensures the card stays above the image */
+  background-color: white;
+  margin-top: -20px;
 }
 
 /* Overlay for text */

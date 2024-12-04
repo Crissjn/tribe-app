@@ -1,7 +1,5 @@
 .btn-join,
 .btn-details {
-  width: 120px;
-  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,18 +10,42 @@
 }
 
 .btn-join {
-  background-color: #d32f2f;
+  background-color: $green;
   color: #fff;
   border: none; /* No border for the join button */
+  width: 120px;
+  height: 40px;
 }
 
 .btn-details {
   background-color: transparent;
-  color: #d32f2f;
-  border: 1px solid #d32f2f; /* Adds a border for the details button */
+  color: $green;
+  border: 1px solid $green; /* Adds a border for the details button */
+  width: 120px;
+  height: 40px;
 }
 
+.btn-see-more {
+  padding: 16px 0;
+  background-color: $green;
+  color: white;
+  border: none;
+  width: 90%;
+  display: inline-block;
+  border-radius: 8px;
+  text-decoration: none;
+}
 
 .btn-join:hover, .btn-details:hover {
   opacity: 1;
+}
+
+.btn-primary {
+  background-color: black;
+  border-radius: 50px;
+}
+
+.form-control {
+  border-radius: 50px;
+  width: 90%;
 }
