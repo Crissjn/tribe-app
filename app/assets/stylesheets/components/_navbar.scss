@@ -16,13 +16,14 @@
 }
 
 .navbar {
-  background-color: transparent
+  background-color: transparent;
 }
 .footer-nav .nav-item {
   text-decoration: none;
   color: white;
-  padding: 0.5rem 1rem;
   transition: color 0.3s ease, border-top 0.3s ease;
+  padding: 0.5rem 1rem; // you don't need to specify the height of the footer, do it through padding
+  width: 100%;
 }
 
 .footer-nav .nav-item.active {
@@ -58,14 +59,13 @@
 }
 
 .navbar-toggler {
-  border: white
+  border: white;
 }
 
 .container-fluid {
   display: flex;
   justify-content: space-between;
   background-color: white;
-
 }
 #glass {
   border: none;
