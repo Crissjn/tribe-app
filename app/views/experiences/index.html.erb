@@ -1,11 +1,18 @@
 <div class="home-container home-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('bali3.jpeg') %>)">
   <div class="home-img">
-    <%# <div class="searchbar"> %>
-        <%# <%= render "shared/search_bar" %>
-    <%# </div> %>
-    <div class="overlay">
-      <h1 class="destination-title">Bali</h1>
-      <p class="location">🇮🇩 Indonesia</p>
+
+<section class="hero">
+    <video autoplay loop muted playsinline class="hero-video">
+      <source src="<%= asset_path('NMzpIWvu-27113676.mp4') %>" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+<%# </div> %>
+
+    <%# <div class="overlay-search" data-search-target="searchBar">
+    <%= render "shared/search_bar" %>
+    <%# <div class="overlay"> %>
+      <%# <h1 class="destination-title">Bali</h1>
+      <p class="location">🇮🇩 Indonesia</p> %>
     </div>
   </div>
   <div class="homepage">
@@ -25,7 +32,7 @@
 
 
 <div class="body-container container pt-3">
-  <%= render "shared/search_bar" %>
+
   <h1 class='explore-heading'>Explore</h1>
 
   <div class="body-container">

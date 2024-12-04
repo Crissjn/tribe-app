@@ -5,3 +5,4 @@
 //= link popper.js
 //= link bootstrap.min.js
 //= link controllers/card_carousel_controller.js
+//= link_tree ../video
