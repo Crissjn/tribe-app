@@ -18,6 +18,7 @@ class ExperiencesController < ApplicationController
         @experiences = @experiences.where(sql_subquery, query: params[:query])
       end
     end
+    return @experiences.order(date: :asc)
   end
 
   def show
@@ -34,7 +35,7 @@ class ExperiencesController < ApplicationController
       # trying to implement chat
       @bookings = @experience.bookings.where(user: current_user)
 
-      @booking = @experience.bookings.where(user: current_user).first
+      @booking = @experience.bookings.first
       @message = Message.new
   end
 
