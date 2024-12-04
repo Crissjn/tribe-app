@@ -67,6 +67,7 @@
   <h3 class="container pt-2">Recommendations for you..</h3>
 
   <%# visible cards %>
+
   <% @experiences.first(5).each do |experience| %>
     <%= render 'shared/card-home', experience: experience %>
   <% end %>
