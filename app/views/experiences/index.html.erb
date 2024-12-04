@@ -31,9 +31,9 @@
 <%# rendering the searchbar in the partials  %>
 
 
-<div class="body-container container pt-3">
+<div class="body-container container py-3">
 
-  <h1 class='explore-heading'>Explore</h1>
+  <h1 class='heading'>Explore</h1>
 
   <div class="body-container">
     <div data-controller="card-carousel" class="carousel-container">
@@ -95,22 +95,20 @@
 </div>
 
 
-      <h3 class="container pt-2">Recommendations for you..</h3>
+<h3 class="heading container pt-4 m-0">Recommendations for you..</h3>
 
+<%# visible cards %>
+<% @experiences.first(5).each do |experience| %>
+  <%= render 'shared/card-home', experience: experience %>
+<% end %>
 
-      <%# visible cards %>
-      <% @experiences.first(5).each do |experience| %>
-        <%= render 'shared/card-home', experience: experience %>
-      <% end %>
-
-    <div class="card-actions-1">
-      <%= link_to 'Explore more', '#', class: 'btn-see-more' %>
-    </div>
-
-    <%# cards to be rendered %>
-    <div class='d-none'>
-      <% @experiences[5..].each do |experience| %>
-        <%= render 'shared/card-home', experience: experience %>
-      <% end %>
-    </div>
+<div class="card-actions-1" data-controller="toggle">
+  <%# cards to be rendered %>
+  <div data-toggle-target="togglableElement" class="d-none">
+    <% (@experiences[5..] || []).each do |experience| %>
+      <%= render 'shared/card-home', experience: experience %>
+    <% end %>
+  </div>
+  <%# add more cards button %>
+  <%= link_to 'Explore more', '#', class: 'btn-see-more', data: { action: 'click->toggle#render' } %>
 </div>
