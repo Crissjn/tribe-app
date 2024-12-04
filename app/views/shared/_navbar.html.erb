@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="searchbar">
   <div class="container-fluid">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,7 +9,7 @@
       <%= image_tag "tribe-logo.png", class: "logo" %>
     <% end %>
 
-    <button id="glass"><i class="fa-solid fa-magnifying-glass"></i></button>
+    <button id="glass" data-action="click->searchbar#toggle"><i class="fa-solid fa-magnifying-glass"></i></button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
@@ -32,4 +32,7 @@
       </ul>
     </div>
   </div>
+  <div  data-searchbar-target="searchbar" style="top: 200px; width: 100%" class="searchbar">
+  <%= render "shared/search_bar" %>
+</div>
 </div>

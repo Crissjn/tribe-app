@@ -1,7 +1,4 @@
  <div class="app-container">
-    <%# <div>
-      <%= image_tag "hike2.jpeg", alt: "Image 2", width: "100%", height: "175%" %>
-    <%# </div> %>
 <%# carousel %>
       <div class="slideshow-container" data-controller="carousel">
         <% @experience.photos.each.with_index(1) do |photo, index| %>
@@ -27,10 +24,6 @@
         <div class="row">
         <p><i class="fa-solid fa-location-dot"></i> <%= @experience.location %></p>
       </div>
-      </div>
-
-      <div class="tour-guide">
-        <p><strong>Pak Joko</strong> - Tour Guide</p>
       </div>
 
       <div class="description">
