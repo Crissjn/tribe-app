@@ -11,7 +11,7 @@
         </p>
         <p class="card-date">
           <i class="fa-regular fa-calendar"></i>
-          <%= experience.date.strftime("%b %d, %Y") %> - <%= (experience.date + 3.days).strftime("%b %d, %Y") %> (Flexible)
+          <%= experience.date.strftime("%b %d, %Y") %> - <%= (experience.date + 2.days).strftime("%b %d, %Y") %> (Flexible)
         </p>
         <p class="card-description"><%= truncate(experience.description, length: 100) %></p>
       </div>

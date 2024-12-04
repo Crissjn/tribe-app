@@ -3,7 +3,8 @@
   display: flex;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  margin: 0 auto;
+  margin: 10px auto;
+  z-index: 0;
 }
 
 .carousel-track {
