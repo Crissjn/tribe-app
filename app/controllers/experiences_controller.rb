@@ -6,7 +6,7 @@ class ExperiencesController < ApplicationController
     @experiences = clean_experiences(@experiences)
     # filter out the experiences that are full/finished or owned but the user
     if params[:query].present?
-      if ["wellbeing", "culture", "adventure-sport", "food-drinks"].include? params[:query]
+      if ["wellbeing", "culture", "adventure", "sport", "nature", "food-drink", "nightlife", "volunteer"].include? params[:query]
         @experiences = @experiences.where(exp_type: params[:query])
       else
         sql_subquery = <<~SQL
@@ -18,6 +18,7 @@ class ExperiencesController < ApplicationController
         @experiences = @experiences.where(sql_subquery, query: params[:query])
       end
     end
+    return @experiences.order(date: :asc)
   end
 
   def show
@@ -33,6 +34,9 @@ class ExperiencesController < ApplicationController
       @booking = Booking.new
       # trying to implement chat
       @bookings = @experience.bookings.where(user: current_user)
+
+      @booking = @experience.bookings.first
+      @message = Message.new
   end
 
   def new
@@ -41,7 +45,7 @@ class ExperiencesController < ApplicationController
 
   def create
     @experience = Experience.new(experience_params)
-     @experience.user = @user
+    @experience.user = @user
     if @experience.save
       @self_book = Booking.new(user: @user, experience: @experience)
       @self_book.save
@@ -80,8 +84,7 @@ class ExperiencesController < ApplicationController
 
   def clean_experiences(experiences)
     experiences = experiences.where.not(user: current_user)
-    experiences = experiences.reject{ |exp| exp.finished? }
-    experiences.reject{ |exp| exp.full? }
+    experiences.where('date > ?', Date.today)
   end
 
   def set_user

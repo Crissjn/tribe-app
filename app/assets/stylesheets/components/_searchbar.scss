@@ -1,26 +1,3 @@
-// .searchbar {
-//   display: flex;
-//   align-items: center;
-//   border-radius: 25px; /* 50% rounded corners */
-//   background-color: #f5f5f5; /* Optional background color */
-//   padding: 5px 15px; /* Padding for better spacing */
-//   position: absolute;
-//   top: 20px; /* Position the text towards the bottom */
-//   color: white;
-//   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-//   border-radius: 50px; /* Add shadow for better contrast */
-//   }
-
-// .overlay-search {
-//   display: flex;
-//   border-radius: 99px;
-//   background-color: #fff;
-//   font: 1.125rem;
-//   position: center;
-//   color: white;
-//   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-
-
 .overlay-search {
   position: absolute;
   top: 50%;
@@ -41,7 +18,6 @@
   width: 80%; /* Adjust width responsively */
 }
 
-
 .search-input {
   flex: 1; /* Take remaining space */
   border: none;
@@ -61,4 +37,16 @@
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+.searchbar {
+  position: absolute;
+  top: 200px;
+}
+.criss-searchbar {
+  width: 90%;
+  position: absolute;
+  top: 300px;
+  left: 5%;
+  z-index: 9;
 }
