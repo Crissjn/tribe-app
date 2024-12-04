@@ -3,7 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
   has_one_attached :photo
-
   has_many :bookings
   has_many :experiences
 
