@@ -426,7 +426,7 @@ exp11 = Experience.new(
   description: "Looking for other fellow metalhead to do some headbanging",
   exp_type: "culture",
   price: 0,
-  date: DateTime.new(2024,11,8,18)
+  date: DateTime.new(2024,12,11,18)
 )
 exp11.photos.attach(metal2_blob)
 exp11.save(validate: false)
@@ -441,3 +441,11 @@ booking = Booking.new(
 )
 booking.save
 puts "experience 11 created"
+
+
+Experience.all.each do |exp|
+  coordinates = Geocoder.coordinates(exp.location)
+  exp.update!(latitude: coordinates[0], longitude: coordinates[1])
+end
+
+puts "Coordinated fixed with brutal force"
