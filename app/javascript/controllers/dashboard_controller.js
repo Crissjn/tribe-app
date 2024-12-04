@@ -21,7 +21,7 @@ export default class extends Controller {
     this.#hide_both();
     event.target.className += " active";
     if (event.params.tab == "bookings") {
-      this.bookingTarget.style.display = "block";
+      this.bookingsTarget.style.display = "block";
     }
     if (event.params.tab == "exp") {
       this.expTarget.style.display = "block";
