@@ -18,6 +18,7 @@ class ExperiencesController < ApplicationController
         @experiences = @experiences.where(sql_subquery, query: params[:query])
       end
     end
+    return @experiences.order(date: :asc)
   end
 
   def show
