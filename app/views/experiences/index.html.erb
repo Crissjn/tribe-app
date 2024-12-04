@@ -6,7 +6,7 @@
     </video>
   </div>
 
-  <div class="body-container container pt-3">
+  <div class="body-container container py-3">
     <h1 class='explore-heading'>Explore</h1>
     <div class="body-container">
       <div data-controller="card-carousel" class="carousel-container">
@@ -37,25 +37,25 @@
           <% end %>
 
           <%= link_to "/experiences?query=nature" do %>
-            <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('food.jpeg') %>)">
+            <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('nature.jpeg') %>)">
               Nature
             </div>
           <% end %>
 
           <%= link_to "/experiences?query=volunteer" do %>
-            <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('food.jpeg') %>)">
+            <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('volunteer.jpeg') %>)">
               Volunteer
             </div>
           <% end %>
 
           <%= link_to "/experiences?query=sport" do %>
-            <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('food.jpeg') %>)">
+            <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('sport.jpeg') %>)">
               Sport
             </div>
           <% end %>
 
           <%= link_to "/experiences?query=nightlife" do %>
-            <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('food.jpeg') %>)">
+            <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('nightlife.jpeg') %>)">
               Nightlife
             </div>
           <% end %>
@@ -66,10 +66,12 @@
 
 </div>
 <h3 class="heading container pt-4 m-0">Recommendations for you..</h3>
+
   <%# visible cards %>
   <% @experiences.first(5).each do |experience| %>
     <%= render 'shared/card-home', experience: experience %>
   <% end %>
+
   <div class="card-actions-1" data-controller="toggle">
     <%# cards to be rendered %>
     <div data-toggle-target="togglableElement" class="d-none">
