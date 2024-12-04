@@ -1,21 +1,54 @@
-<div class="container">
-  <p> welcome to your profile <%= @current_user.username %></p>
+<div class="app-container">
+  <div style="text-align : center"><h1><%= @current_user.username %></h1></div>
   <div data-controller="dashboard">
 
-      <div class="tab">
-        <button class="tablinks" data-dashboard-target="btnexp" data-action="click->dashboard#change_tab" data-dashboard-tab-param="exp">Your experiences</button>
-        <button class="tablinks" data-dashboard-target="btnbooking" data-action="click->dashboard#change_tab" data-dashboard-tab-param="bookings">Your bookings</button>
+      <div class="tab menu-tab">
+        <button class="tablinks nav-item" data-dashboard-target="btnbooking" data-action="click->dashboard#change_tab" data-dashboard-tab-param="bookings">Bookings</button>
+        <button class="tablinks nav-item" data-dashboard-target="btnexp" data-action="click->dashboard#change_tab" data-dashboard-tab-param="exp">Owned</button>
+        <button class="tablinks nav-item" data-dashboard-target="btnpast" data-action="click->dashboard#change_tab" data-dashboard-tab-param="past">Past Experiences</button>
       </div>
 
       <!-- Tab content -->
 
-      <div id="your_exp" class="tabcontent" data-dashboard-target="exp">
-        <%= @current_user.experiences.count %> asdhasjdhasjdhasjdhasjdahdjha
-      </div>
-
       <div id="your_bookings" class="tabcontent" data-dashboard-target="bookings">
-        <%= @current_user.bookings.count %> porco dios
+      <%# filtering out the experiences that are passed %>
+        <% your_bookings = @current_user.bookings.select{|booking| booking.experience.date > Date.today} %>
+        <section class="content-section pt-4" style=" text-align:center">
+          <% if your_bookings.count == 0 %>
+            <h3>No active bookings 😥</h3>
+          <% else %>
+          <% your_bookings.each do |booking| %>
+            <%= render 'shared/card-dashboard', experience: booking.experience %>
+            <% end %>
+          <% end %>
+        </section>
       </div>
 
+      <div id="your_exp" class="tabcontent" data-dashboard-target="exp">
+      <%# selecting only the experiences that belongs to you %>
+        <% your_experiences = @current_user.experiences %>
+        <section class="content-section pt-4" style=" text-align:center">
+          <% if your_experiences.count == 0  %>
+            <h3>You still did not suggest any activity 😥</h3>
+          <% else %>
+            <% your_experiences.each do |experience| %>
+             <%= render 'shared/card-dashboard', experience: experience %>
+            <% end %>
+          <% end %>
+        </section>
+      </div>
+
+       <div id="your_past" class="tabcontent" data-dashboard-target="past">
+         <% your_old_bookings = @current_user.bookings.select{|booking| booking.experience.date < Date.today} %>
+        <section class="content-section pt-4" style=" text-align:center">
+          <% if your_old_bookings == [] %>
+            <h3>Nothing to see here 😥</h3>
+          <% else %>
+          <% your_old_bookings.each do |booking| %>
+            <%= render 'shared/card-dashboard', experience: booking.experience %>
+            <% end %>
+          <% end %>
+        </section>
+      </div>
     </div>
  </div>
