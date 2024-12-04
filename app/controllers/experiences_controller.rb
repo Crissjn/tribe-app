@@ -34,7 +34,7 @@ class ExperiencesController < ApplicationController
       # trying to implement chat
       @bookings = @experience.bookings.where(user: current_user)
 
-      @booking = @experience.bookings.where(user: current_user).first
+      @booking = @experience.bookings.first
       @message = Message.new
   end
 
