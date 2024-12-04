@@ -5,7 +5,7 @@
       <%= simple_form_for(@experience) do |f| %>
         <div class="form-inputs mb-3">
           <%= f.input :title %>
-          <%= f.input :exp_type, collection: ['adventure-sport', 'food-drinks', 'eco', 'culture', 'wellbeing']%>
+          <%= f.input :exp_type, collection: ["wellbeing", "culture", "adventure", "sport", "nature", "food-drink", "nightlife", "volunteer"]%>
           <div class="row">
           <div class="col-6"><%= f.input :max_participants %> </div>
           <div class="col-6"><%= f.input :min_participants %> </div>

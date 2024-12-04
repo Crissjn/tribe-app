@@ -6,7 +6,7 @@ class ExperiencesController < ApplicationController
     @experiences = clean_experiences(@experiences)
     # filter out the experiences that are full/finished or owned but the user
     if params[:query].present?
-      if ["wellbeing", "culture", "adventure-sport", "food-drinks"].include? params[:query]
+      if ["wellbeing", "culture", "adventure", "sport", "nature", "food-drink", "nightlife", "volunteer"].include? params[:query]
         @experiences = @experiences.where(exp_type: params[:query])
       else
         sql_subquery = <<~SQL

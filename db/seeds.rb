@@ -198,7 +198,7 @@ exp1 = Experience.new(
   location: "Denpasar, Bali, Indonesia",
   title: "Mount Batur Hike",
   description: "Mount Batur is one of the most popular hikes near Ubud. Located an hour north of the city. 4-hour hike with stunning views and two calderas. ",
-  exp_type: "adventure-sport",
+  exp_type: "adventure",
   price: 45,
   date: Date.today + 5
 )
@@ -219,7 +219,7 @@ exp2 = Experience.new(
   title: "Walk in the Vondelpark",
   description: "Hei! I would like to invite you to join me for a nice walk in the wonderful Vondelpark, in the center of Amsterdam.
   We can also maybe go for an hot chocolate in one of the cafe in the area.",
-  exp_type: "adventure-sport",
+  exp_type: "sport",
   price: 0,
   date: DateTime.new(2024,12,9,14)
 )
@@ -260,7 +260,7 @@ exp4 = Experience.new(
   location: "Staalstraat 22, 1011 JM Amsterdam",
   title: "Thai dinner",
   description: "I heard of this really nice thai restaurant in Amsterdam but I'm here alone from UK.Any other thai food lover?",
-  exp_type: "food-drinks",
+  exp_type: "food-drink",
   price: 0,
   date: DateTime.new(2024,12,8,19,30)
 )
@@ -285,7 +285,7 @@ exp5 = Experience.new(
   location: "Reguliersdwarsstraat 74, 1017 BN Amsterdam",
   title: "Cocktails night",
   description: "Anybody up for some cocktail and a chat?",
-  exp_type: "food-drinks",
+  exp_type: "food-drink",
   price: 0,
   date: DateTime.new(2024,12,10,21,30)
 )
@@ -307,7 +307,7 @@ exp6 = Experience.new(
   location: "Spuistraat 245, 1012 VP Amsterdam",
   title: "Beeeeers!",
   description: "I discovered this little cafe in the center, probably the last punk cafe in Amsterdam. I want to go check it out!",
-  exp_type: "food-drinks",
+  exp_type: "food-drink",
   price: 0,
   date: DateTime.new(2024,12,8,20)
 )
@@ -332,7 +332,7 @@ exp7 = Experience.new(
   location: "Pazzanistraat 39, 1014 DB Amsterdam",
   title: "Running at the Westergasfabriek",
   description: "In this few days in Amsterdam I have been eating a lot(and drinking). I think having a chill run could make me feel less guilty.Join me!",
-  exp_type: "adventure-sport",
+  exp_type: "sport",
   price: 0,
   date: DateTime.new(2024,12,8,14,30)
 )
@@ -373,7 +373,7 @@ exp9 = Experience.new(
   location: "Noordermarkt, 1015 NA Amsterdam",
   title: "Let's play basketball",
   description: "I really feel like having a small shoot around with somebody while in amsterdam.Maybe do you have a ball too? 🥺",
-  exp_type: "adventure-sport",
+  exp_type: "sport",
   price: 0,
   date: DateTime.new(2024,12,7,14,30)
 )
@@ -399,7 +399,7 @@ exp10 = Experience.new(
   location: "Pijlsteeg 31, 1012 HH Amsterdam",
   title: "Drink and chill",
   description: "Looking for some drinking buddies to share some drinks and snacks.And late, why not, maybe some clubbing!",
-  exp_type: "food-drinks",
+  exp_type: "food-drink",
   price: 0,
   date: DateTime.new(2024,12,8,18)
 )

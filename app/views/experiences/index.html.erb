@@ -12,7 +12,7 @@
       <div data-controller="card-carousel" class="carousel-container">
         <!-- Carousel for Cards -->
         <div class="carousel-track d-flex pt-3" data-carousel-target="track">
-          <%= link_to "/experiences?query=adventure-sport" do %>
+          <%= link_to "/experiences?query=adventure" do %>
             <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('adventure.jpeg') %>)">
               Adventure
             </div>
@@ -78,7 +78,7 @@
 
   <%# cards to be rendered %>
   <div class='d-none'>
-    <% @experiences[5..].each do |experience| %>
+    <% (@experiences[5..] || []).each do |experience| %>
       <%= render 'shared/card-home', experience: experience %>
     <% end %>
   </div>
