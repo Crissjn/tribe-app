@@ -22,35 +22,37 @@
 
     <%# carousel end %>
 
-    <div class="body-container">
+    <div class="body-container experiences-show">
     <div class="details">
 
       <div class="location d-flex">
         <div class="row">
+          <h2><%= @experience.title %></h2>
         <p><i class="fa-solid fa-location-dot"></i> <%= @experience.location %></p>
+        <p>Only <%= @experience.max_participants - @experience.num_partecipants %> spots left!</p>
       </div>
       </div>
-
+<%#
       <div class="tour-guide">
         <p class="card-title"><strong>Pak Joko</strong> - Tour Guide</p>
-      </div>
+      </div> %>
 
       <div class="description">
         <h4>Description</h4>
-        <p> <%= @experience.description %></p>
+        <p class="show-description"> <%= @experience.description %></p>
       </div>
       <div class="d-flex justify-content-between booking align-items-center">
-        <p><strong>$</strong> <%= @experience.price.to_i %> / Person</p>
+        <p>$<%= @experience.price.to_i %> / Person</p>
         <%= link_to "Book Now", experience_bookings_path(@experience), data: { turbo_method: "post" }, class: "book-now button" %>
       </div>
     </div>
 
  <div class="d-flex justify-content-start card-container">
 
+<%# avatars attending %>
+<%= render 'shared/avatar-guests' %>
 
-
-<h5> This experience belongs to <%= @experience.user.username %> </h1>
-<h5>Partecipants <%= @experience.num_partecipants %> on <%= @experience.max_participants %></h5>
+<h6> Join <%= @experience.user.username %> and others...</h1>
 <%#  if you are the owner of the experience show edit/delete button %>
 <% if @experience.user == @user %>
   <h3>You own this experience</h3>
@@ -68,7 +70,7 @@
 <% end %>
 
     <div data-controller="tab-show">
-      <div class="tab menu-tab">
+      <div class="tab menu-tab experiences-show">
         <button class="tablinks nav-item" data-tab-show-target="btnchat" data-action="click->tab-show#change_tab" data-tab-show-tab-param="map">Check the map</button>
         <button class="tablinks nav-item" data-tab-show-target="btnmap" data-action="click->tab-show#change_tab" data-tab-show-tab-param="chat">Chat with other participants</button>
       </div>

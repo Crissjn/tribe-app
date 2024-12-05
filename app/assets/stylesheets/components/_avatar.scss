@@ -1,6 +1,10 @@
 .avatar {
   width: 40px;
   border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white; /* Optional: To add a border between overlapping avatars */
+  z-index: 1; /* Ensure proper stacking */
+  margin-left: -15px;
 }
 .avatar-large {
   width: 56px;
@@ -17,4 +21,23 @@
   border-radius: 0px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+}
+
+.avatars-container {
+  display: flex;
+  gap: -10px; /* Overlaps the avatars */
+}
+
+.avatar {
+  width: 50px; /* Adjust size as needed */
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white; /* Optional: To add a border between overlapping avatars */
+  z-index: 1; /* Ensure proper stacking */
+  margin-left: -15px; /* Controls the overlap */
+}
+
+.avatars-container .avatar:first-child {
+  margin-left: 0; /* Ensure the first avatar is aligned properly */
 }
