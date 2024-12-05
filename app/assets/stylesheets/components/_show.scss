@@ -21,6 +21,7 @@
   padding: 20px;
   margin-top: -40px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .header {
@@ -46,6 +47,7 @@
 .location p {
   font-size: 18px;
   color: #777;
+  margin-bottom: 0;
 }
 
 .tour-guide p {
@@ -87,28 +89,56 @@
 }
 
 .booking {
-  margin-top: 30px;
+  margin-top: 0px;
   text-align: center;
+  width: 100% !important;
 }
 
 .booking p {
   font-size: 22px;
   font-weight: bold;
   color: #333;
+  margin: 0;
 }
 
 .book-now {
   background-color: $green;
   color: #fff;
-  padding: 15px 30px;
+  padding: 15px 20px;
   font-size: 18px;
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  margin-top: 20px;
   text-decoration: none;
 }
 
 .book-now:hover {
   background-color: #09864e;
+}
+
+.show-description {
+  font-size: 0.95rem;
+  color: #333;
+  margin: 8px 0 16px;
+  font-weight: 400;
+}
+
+.booking-number {
+  background-color: grey;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -15px;
+  z-index: 1;
+  font-size: 20px;
+}
+
+.experiences-show .tablinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

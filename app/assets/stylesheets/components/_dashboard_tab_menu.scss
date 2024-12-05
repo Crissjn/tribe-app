@@ -6,6 +6,11 @@
   button {
     height: 100%;
   }
+
+  &.experiences-show {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* Style the tab */

@@ -8,10 +8,10 @@
 
   <div class="body-container container py-3">
     <h1 class='explore-heading'>Explore</h1>
-    <div class="body-container">
+    <div class="body-container mt-3">
       <div data-controller="card-carousel" class="carousel-container">
         <!-- Carousel for Cards -->
-        <div class="carousel-track d-flex pt-3" data-carousel-target="track">
+        <div class="carousel-track d-flex" data-carousel-target="track">
           <%= link_to "/experiences?query=adventure" do %>
             <div class="card-category carousel-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('adventure.jpeg') %>)">
               Adventure

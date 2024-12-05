@@ -1,10 +1,11 @@
 require "open-uri"
 # images
 # profiles
-file = URI.parse("https://t3.ftcdn.net/jpg/06/95/63/36/360_F_695633635_fEruwn09WukVX3T1E8jcTPj7CLte2hPx.jpg").open
-file2 = URI.parse("https://t3.ftcdn.net/jpg/06/95/63/36/360_F_695633635_fEruwn09WukVX3T1E8jcTPj7CLte2hPx.jpg").open
-file3 = URI.parse("https://t3.ftcdn.net/jpg/06/95/63/36/360_F_695633635_fEruwn09WukVX3T1E8jcTPj7CLte2hPx.jpg").open
-file4 = URI.parse("https://t3.ftcdn.net/jpg/06/95/63/36/360_F_695633635_fEruwn09WukVX3T1E8jcTPj7CLte2hPx.jpg").open
+file = File.open(Rails.root.join("app/assets/images/kelvin.jpeg"))
+file2 = File.open(Rails.root.join("app/assets/images/james.jpeg"))
+file3 = File.open(Rails.root.join("app/assets/images/rodrigo.jpeg"))
+file4 = File.open(Rails.root.join("app/assets/images/cristiano.jpeg"))
+file5 = File.open(Rails.root.join("app/assets/images/john.jpeg"))
 # adventure v
 adventure = URI.parse("https://cdn.outsideonline.com/wp-content/uploads/2023/04/guided-hike_h-1024x576.jpg?width=1200").open
 adventure2 = URI.parse("https://www.shape.com/thmb/oAnU3qGLLeS9CDt7gceJRTo0-po=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/endurance-4d8dfc8fd70741f5a8ee810d816f52d0.jpg").open
@@ -139,7 +140,11 @@ kelvin = User.new(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-kelvin.photo.attach(io: file, filename: "kelvin_profile.png", content_type: "image/png")
+kelvin.photo.attach(
+  io: file,
+  filename: "kelvin.jpeg",
+  content_type: "image/jpeg"
+)
 kelvin.save
 
 puts "kelvin created"
@@ -150,7 +155,7 @@ james = User.new(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-james.photo.attach(io: file2, filename: "james_profile.png", content_type: "image/png")
+james.photo.attach(io: file2, filename: "james.jpeg", content_type: "image/jpeg")
 james.save
 
 puts "james created"
@@ -161,7 +166,7 @@ rodrigo = User.new(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-rodrigo.photo.attach(io: file3, filename: "rodrigo_profile.png", content_type: "image/png")
+rodrigo.photo.attach(io: file3, filename: "rodrigo.jpeg", content_type: "image/jpeg")
 rodrigo.save
 
 puts "rodrigo created"
@@ -172,7 +177,7 @@ criss = User.new(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-criss.photo.attach(io: file4, filename: "criss_profile.png", content_type: "image/png")
+criss.photo.attach(io: file4, filename: "cristiano.jpeg", content_type: "image/jpeg")
 criss.save
 
 puts "criss created"
@@ -183,7 +188,7 @@ john = User.new(
   password: 'topsecret',
   password_confirmation: 'topsecret'
 )
-john.photo.attach(io: file4, filename: "criss_profile.png", content_type: "image/png")
+john.photo.attach(io: file5, filename: "john.jpeg", content_type: "image/jpeg")
 john.save
 puts "johndoe created"
 

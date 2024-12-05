@@ -68,6 +68,12 @@ body {
   z-index: 1; /* Ensures the card stays above the image */
   background-color: white;
   margin-top: -20px;
+
+  &.experiences-show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* Overlay for text */
@@ -162,6 +168,7 @@ body {
   height: auto;
   object-fit: cover;
   border-bottom: 1px solid #eee;
+  border-radius: 8px;
 }
 
 .card-content {

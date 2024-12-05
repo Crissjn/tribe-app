@@ -1,0 +1,11 @@
+<div class="avatars-container">
+  <% @experience.bookings.first(3).each do |booking, user| %>
+    <%= cl_image_tag booking.user.photo.key, class: "avatar" %>
+  <% end %>
+
+  <% if @experience.bookings.length > 3 %>
+    <div class="booking-number">
+      +<%= @experience.bookings.length - 3 %>
+    </div>
+  <% end %>
+</div>
