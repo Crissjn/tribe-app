@@ -6,16 +6,29 @@ export default class extends Controller {
 
   connect() {
     this.#hide_both();
+    this.active = "";
   }
 
   change_tab(event) {
     this.#hide_both();
-    event.target.className += " active";
+    // event.target.className += " active";
     if (event.params.tab == "chat") {
-      this.chatTarget.style.display = "block";
+      if (this.active == "chat") {
+        this.active = "";
+      } else {
+        event.target.className += " active";
+        this.chatTarget.style.display = "block";
+        this.active = "chat";
+      }
     }
     if (event.params.tab == "map") {
-      this.mapTarget.style.display = "block";
+      if (this.active == "map") {
+        this.active = "";
+      } else {
+        event.target.className += " active";
+        this.mapTarget.style.display = "block";
+        this.active = "map";
+      }
     }
   }
 
