@@ -42,37 +42,42 @@
         <p class="show-description"> <%= @experience.description %></p>
       </div>
       <div class="d-flex justify-content-between booking align-items-center">
-        <p>$<%= @experience.price.to_i %> / Person</p>
-        <%= link_to "Book Now", experience_bookings_path(@experience), data: { turbo_method: "post" }, class: "book-now button" %>
+        <% if @experience.price == 0 %>
+         <p>FREE</p>
+        <% else %>
+         <p>$<%= @experience.price.to_i %> / Person</p>
+        <% end %>
+
+        <% if @experience.user == @user %>
+            <%= link_to "Edit" , edit_experience_path(@experience) ,class: "book-now button" %>
+            <%= link_to "Delete",
+                          experience_path(@experience),
+                          class: "book-now button",
+                          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+          <% elsif @experience.full? %>
+          <%# if experience is full show "sorry " %>
+            <%= link_to "No spots left","javascript:void(0);", data: { turbo_method: "post" }, class: "book-now button" %>
+          <% elsif @experience.booked_in?(@user) %>
+            <%= link_to "Already booked" ,"javascript:void(0);", class: "book-now button" %>
+          <% else %>
+             <%= link_to "Book Now", experience_bookings_path(@experience), data: { turbo_method: "post" }, class: "book-now button" %>
+          <% end %>
+
+
       </div>
     </div>
 
- <div class="d-flex justify-content-start card-container">
+ <div class="d-flex justify-content-center card-container">
 
 <%# avatars attending %>
 <%= render 'shared/avatar-guests' %>
 
 <h6> Join <%= @experience.user.username %> and others...</h1>
 <%#  if you are the owner of the experience show edit/delete button %>
-<% if @experience.user == @user %>
-  <h3>You own this experience</h3>
-   <%= link_to "Edit this experience" , edit_experience_path(@experience)  %>
-   <%= link_to "Delete this experience",
-                experience_path(@experience),
-                 data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-<% elsif @experience.full? %>
-<%# if experience is full show "sorry " %>
-  <h4>Sorry the experience is fully booked.</h4>
-<% elsif @experience.booked_in?(@user) %>
-  <h4>You are already booked for this experience.</h4>
-<% else %>
-  <%= link_to "Book this experience" , experience_bookings_path(@experience) , data: {turbo_method: "post"} %>
-<% end %>
-
     <div data-controller="tab-show">
       <div class="tab menu-tab experiences-show">
         <button class="tablinks nav-item" data-tab-show-target="btnchat" data-action="click->tab-show#change_tab" data-tab-show-tab-param="map">Check the map</button>
-        <button class="tablinks nav-item" data-tab-show-target="btnmap" data-action="click->tab-show#change_tab" data-tab-show-tab-param="chat">Chat with other participants</button>
+        <button class="tablinks nav-item" data-tab-show-target="btnmap" data-action="click->tab-show#change_tab" data-tab-show-tab-param="chat">Check the chat</button>
       </div>
 
       <!-- Tab content -->
