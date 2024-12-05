@@ -1,5 +1,5 @@
 <div class="container chat">
-  <h1>Chat group for <%= @booking.experience.title %></h1>
+  <h4>Share and enjoy!</h4>
 
   <%= turbo_stream_from "booking_#{@booking.id}_messages" %>
   <div id="messages" class="messages">
