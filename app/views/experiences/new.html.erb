@@ -16,9 +16,8 @@
 
           <div class="form-photos" data-controller="multiple-files-form">
 
-          <%# .input :photos, as: :file, input_html: { multiple: true } %>
-
-          <%= f.file_field :photos, :multiple => true, :data => {:action => "multiple-files-form#addFile"} %>
+          <div class="col-12"><label class="form-label string optional" for="experience_photo">Upload at least 1 photo</label></div>
+          <%= f.file_field :photos, required: true, :multiple => true, :data => {:action => "multiple-files-form#addFile"} %>
           <div data-multiple-files-form-target="files"></div>
           </div>
         </div>
